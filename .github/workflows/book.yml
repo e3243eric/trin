@@ -1,7 +1,7 @@
 name: book
 on:
   push:
-    branches: [main]
+    branches: [main, book]
     paths:
       - 'book/**'
       - 'book.toml'
