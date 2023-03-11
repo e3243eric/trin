@@ -1,15 +1,17 @@
 name: book
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'book/**'
       - 'book.toml'
+      - '.github/workflows/book.yml'
   pull_request:
-    branches: [main]
+    branches: [master]
     paths:
       - 'book/**'
       - 'book.toml'
+      - '.github/workflows/book.yml'
 
 jobs:
   test:
@@ -27,6 +29,7 @@ jobs:
 
       - name: Run tests
         run: mdbook test
+        working-directory: book
 
   build:
     runs-on: ubuntu-latest
@@ -43,6 +46,7 @@ jobs:
 
       - name: Build
         run: mdbook build
+        working-directory: book
 
       - name: Save pages artifact
         uses: actions/upload-pages-artifact@v1
