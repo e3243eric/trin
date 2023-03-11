@@ -2,19 +2,10 @@ name: book
 on:
   push:
     branches: [main, book]
-    paths:
-      - 'book/**'
-      - 'book.toml'
   pull_request:
     branches: [main]
-    paths:
-      - 'book/**'
-      - 'book.toml'
   workflow_dispatch:
     branches: [book]
-    paths:
-      - 'book/**'
-      - 'book.toml'
 
 jobs:
   test:
