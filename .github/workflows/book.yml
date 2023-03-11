@@ -11,6 +11,10 @@ on:
       - 'book/**'
       - 'book.toml'
   workflow_dispatch:
+    branches: [book]
+    paths:
+      - 'book/**'
+      - 'book.toml'
 
 jobs:
   test:
