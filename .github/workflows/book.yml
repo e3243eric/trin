@@ -34,6 +34,8 @@ jobs:
   build:
     if: github.ref_name == 'main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    name: build
+
     steps:
       - uses: actions/checkout@v2
       - uses: XAMPPRocky/deploy-mdbook@v1.1
