@@ -43,8 +43,9 @@ jobs:
           echo `pwd`/mdbook >> $GITHUB_PATH
 
       - name: Build
-        run: mdbook build
-        working-directory: book
+        run: |
+          cd book
+          mdbook build
 
       - name: Save pages artifact
         uses: actions/upload-pages-artifact@v1
