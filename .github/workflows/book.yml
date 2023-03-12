@@ -32,7 +32,6 @@ jobs:
         working-directory: book
 
   build:
-    if: github.ref_name == 'main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     name: build
 
