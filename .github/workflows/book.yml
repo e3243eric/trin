@@ -48,7 +48,6 @@ jobs:
 
       - name: Save pages artifact
         uses: actions/upload-pages-artifact@v1
-        working-directory: book
 
   deploy:
     # Only deploy if a push to main
