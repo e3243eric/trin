@@ -21,22 +21,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install mdbook
+      - name: Install Rust
+        run: bash ci/install-rust.sh stable
+
+      - name: Install mdbook-mermaid
         run: |
-          mkdir mdbook
-          curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.14/mdbook-v0.4.14-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=./mdbook
-          echo `pwd`/mdbook >> $GITHUB_PATH
+          cd book
+          cargo install mdbook-mermaid
+          mdbook-mermaid install
 
       - name: Run tests
         run: mdbook test
-        working-directory: book
-
-  build:
-    runs-on: ubuntu-latest
-    name: build
-
-    steps:
-      - uses: actions/checkout@v2
-      - uses: XAMPPRocky/deploy-mdbook@v1.1
-        with:
-            token: ${{ secrets.GITHUB_TOKEN }}
