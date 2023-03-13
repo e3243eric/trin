@@ -34,6 +34,7 @@ jobs:
 
       - name: Run tests
         run: mdbook test
+        working-directory: book
   
   build-deploy:
     runs-on: ubuntu-latest
