@@ -6,6 +6,7 @@ title = "Trin"
 
 [output.html]
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
+site-url = "/book/"
 
 [output.html.fold]
 enable = true
