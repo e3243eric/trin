@@ -1,0 +1,368 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Linux - Trin</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../introduction/portal_network.html"><strong aria-hidden="true">1.1.</strong> Portal Network</a></li></ol></li><li class="chapter-item expanded "><a href="../../users/index.html"><strong aria-hidden="true">2.</strong> Users</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../users/requirements.html"><strong aria-hidden="true">2.1.</strong> Requirements</a></li><li class="chapter-item expanded "><a href="../../users/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../users/installation/mac_os.html"><strong aria-hidden="true">2.2.1.</strong> Mac Os</a></li><li class="chapter-item expanded "><a href="../../users/installation/linux.html" class="active"><strong aria-hidden="true">2.2.2.</strong> Linux</a></li><li class="chapter-item "><a href="../../users/installation/raspberry_pi.html"><strong aria-hidden="true">2.2.3.</strong> Raspberry Pi</a></li><li class="chapter-item "><a href="../../users/installation/windows.html"><strong aria-hidden="true">2.2.4.</strong> Windows</a></li></ol></li><li class="chapter-item "><a href="../../users/startup.html"><strong aria-hidden="true">2.3.</strong> Startup</a></li><li class="chapter-item "><a href="../../users/use/index.html"><strong aria-hidden="true">2.4.</strong> Use</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../users/use/making_queries.html"><strong aria-hidden="true">2.4.1.</strong> Making queries</a></li><li class="chapter-item "><a href="../../users/use/ethereum_data.html"><strong aria-hidden="true">2.4.2.</strong> Ethereum data</a></li><li class="chapter-item "><a href="../../users/use/portal_network_data.html"><strong aria-hidden="true">2.4.3.</strong> Portal network data</a></li></ol></li><li class="chapter-item "><a href="../../users/monitoring.html"><strong aria-hidden="true">2.5.</strong> Monitoring</a></li><li class="chapter-item "><a href="../../users/problems.html"><strong aria-hidden="true">2.6.</strong> Problems</a></li><li class="chapter-item "><a href="../../users/faq.html"><strong aria-hidden="true">2.7.</strong> FAQ</a></li></ol></li><li class="chapter-item "><a href="../../developers/index.html"><strong aria-hidden="true">3.</strong> Developers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/quick_setup.html"><strong aria-hidden="true">3.1.</strong> Quick setup</a></li><li class="chapter-item "><a href="../../developers/developer_stories.html"><strong aria-hidden="true">3.2.</strong> Developer stories</a></li><li class="chapter-item "><a href="../../developers/goals.html"><strong aria-hidden="true">3.3.</strong> Goals</a></li><li class="chapter-item "><a href="../../developers/progress_status.html"><strong aria-hidden="true">3.4.</strong> Progress status</a></li><li class="chapter-item "><a href="../../developers/architecture/index.html"><strong aria-hidden="true">3.5.</strong> Architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/architecture/workspaces.html"><strong aria-hidden="true">3.5.1.</strong> Workspaces</a></li><li class="chapter-item "><a href="../../developers/architecture/process_flow.html"><strong aria-hidden="true">3.5.2.</strong> Process flow</a></li><li class="chapter-item "><a href="../../developers/architecture/database.html"><strong aria-hidden="true">3.5.3.</strong> Database</a></li><li class="chapter-item "><a href="../../developers/architecture/testing.html"><strong aria-hidden="true">3.5.4.</strong> Testing</a></li></ol></li><li class="chapter-item "><a href="../../developers/protocols/index.html"><strong aria-hidden="true">3.6.</strong> Protocols</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/protocols/portal_wire.html"><strong aria-hidden="true">3.6.1.</strong> Portal wire protocol</a></li><li class="chapter-item "><a href="../../developers/protocols/discovery.html"><strong aria-hidden="true">3.6.2.</strong> Discovery</a></li><li class="chapter-item "><a href="../../developers/protocols/utp.html"><strong aria-hidden="true">3.6.3.</strong> uTP</a></li><li class="chapter-item "><a href="../../developers/protocols/json_rpc.html"><strong aria-hidden="true">3.6.4.</strong> JSON-RPC</a></li><li class="chapter-item "><a href="../../developers/protocols/ssz.html"><strong aria-hidden="true">3.6.5.</strong> SSZ</a></li><li class="chapter-item "><a href="../../developers/protocols/kademlia.html"><strong aria-hidden="true">3.6.6.</strong> Kademlia</a></li></ol></li><li class="chapter-item "><a href="../../developers/core_concepts/index.html"><strong aria-hidden="true">3.7.</strong> Core concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/core_concepts/finding_peers.html"><strong aria-hidden="true">3.7.1.</strong> Finding peers</a></li><li class="chapter-item "><a href="../../developers/core_concepts/chain_tip.html"><strong aria-hidden="true">3.7.2.</strong> Chain tip</a></li><li class="chapter-item "><a href="../../developers/core_concepts/cryptographic_accumulator.html"><strong aria-hidden="true">3.7.3.</strong> Cryptographic accumulator</a></li><li class="chapter-item "><a href="../../developers/core_concepts/bridge.html"><strong aria-hidden="true">3.7.4.</strong> Bridge</a></li><li class="chapter-item "><a href="../../developers/core_concepts/archive_nodes.html"><strong aria-hidden="true">3.7.5.</strong> Archive nodes</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/index.html"><strong aria-hidden="true">3.8.</strong> Contributor guidelines</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/rust/index.html"><strong aria-hidden="true">3.8.1.</strong> Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/rust/comments.html"><strong aria-hidden="true">3.8.1.1.</strong> Comments</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/imports.html"><strong aria-hidden="true">3.8.1.2.</strong> Imports</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/logging.html"><strong aria-hidden="true">3.8.1.3.</strong> Logging</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/error_handling.html"><strong aria-hidden="true">3.8.1.4.</strong> Error handling</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/style.html"><strong aria-hidden="true">3.8.1.5.</strong> Style</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/git/index.html"><strong aria-hidden="true">3.8.2.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/git/commits.html"><strong aria-hidden="true">3.8.2.1.</strong> Commits</a></li><li class="chapter-item "><a href="../../developers/contributing/git/rebasing.html"><strong aria-hidden="true">3.8.2.2.</strong> Rebasing</a></li><li class="chapter-item "><a href="../../developers/contributing/git/release_notes.html"><strong aria-hidden="true">3.8.2.3.</strong> Release notes</a></li><li class="chapter-item "><a href="../../developers/contributing/git/pull_requests.html"><strong aria-hidden="true">3.8.2.4.</strong> Pull requests</a></li><li class="chapter-item "><a href="../../developers/contributing/git/code_review.html"><strong aria-hidden="true">3.8.2.5.</strong> Code review</a></li><li class="chapter-item "><a href="../../developers/contributing/git/fetching_pull_requests.html"><strong aria-hidden="true">3.8.2.6.</strong> Fetching a pull request</a></li><li class="chapter-item "><a href="../../developers/contributing/git/merging.html"><strong aria-hidden="true">3.8.2.7.</strong> Merging</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/releases/index.html"><strong aria-hidden="true">3.8.3.</strong> Releases</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/releases/release_notes.html"><strong aria-hidden="true">3.8.3.1.</strong> Release notes</a></li><li class="chapter-item "><a href="../../developers/contributing/releases/versioning.html"><strong aria-hidden="true">3.8.3.2.</strong> Versioning</a></li><li class="chapter-item "><a href="../../developers/contributing/releases/generation.html"><strong aria-hidden="true">3.8.3.3.</strong> Generation</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/tests.html"><strong aria-hidden="true">3.8.4.</strong> Tests</a></li><li class="chapter-item "><a href="../../developers/contributing/book.html"><strong aria-hidden="true">3.8.5.</strong> Book</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Trin</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
+<h2 id="trin-on-ubuntu"><a class="header" href="#trin-on-ubuntu">Trin on Ubuntu</a></h2>
+<p>These steps are for setting up a Trin node as a service on Ubuntu.</p>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<pre><code class="language-sh">$ sudo apt install libssl-dev librocksdb-dev libclang-dev pkg-config build-essentials
+</code></pre>
+<p>Install Trin:</p>
+<blockquote>
+<p>Tip: If you intend to submit code changes to trin, first fork the repo and
+then clone that url.</p>
+</blockquote>
+<pre><code class="language-sh">$ cd ~
+$ git clone https://github.com/ethereum/trin.git
+$ cd trin
+$ cargo build --workspace --release
+</code></pre>
+<p>Now the executable is located in <code>trin/target/release</code> and can be called by systemd.
+Move that binary to the standard location for binaries:</p>
+<pre><code class="language-sh">$ sudo cp -a ~/trin/target/release/trin /usr/local/bin/trin
+</code></pre>
+<blockquote>
+<p>Tip: If you make changes to these steps, keep a record for future reference.</p>
+</blockquote>
+<p>Make a new user for the Trin service:</p>
+<pre><code class="language-sh">$ sudo useradd --no-create-home --shell /bin/false trin
+</code></pre>
+<p>Make a directory for Trin data and give the Trin user permission to access it:</p>
+<pre><code class="language-sh">$ sudo mkdir -p /var/lib/trin
+$ sudo chown -R trin:trin /var/lib/trin
+</code></pre>
+<p>Check that the binary works:</p>
+<pre><code class="language-sh">$ /usr/local/bin/trin --version
+</code></pre>
+<p>Example response:</p>
+<pre><code class="language-sh">&gt; Launching trin
+&gt; trin 0.0.1
+</code></pre>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>Before setting up the service, look at the flags that can be set when starting Trin:</p>
+<pre><code class="language-sh">$ /usr/local/bin/trin --help
+</code></pre>
+<p>Some selected flags are described below.</p>
+<h3 id="optional-flag-for-database-size"><a class="header" href="#optional-flag-for-database-size">Optional flag for database size</a></h3>
+<p><code>--kb 200000</code>. Trin lets you control how much storage the node takes up (e.g., 200MB). The default is
+100_000 kilobytes and can be changed.</p>
+<h3 id="optional-flag-for-no-connection-to-external-server"><a class="header" href="#optional-flag-for-no-connection-to-external-server">Optional flag for no connection to external server</a></h3>
+<p><code>--no-stun</code>. A third party server connection is configured by default to assist in testing.
+This is a Session Traversal Utilities for NAT (STUN) server and may be disabled
+a flag. The docs state: &quot;Do not use STUN to determine an external IP. Leaves
+ENR entry for IP blank. Some users report better connections over VPN.&quot;</p>
+<h3 id="optional-flags-for-conflicting-nodes"><a class="header" href="#optional-flags-for-conflicting-nodes">Optional flags for conflicting nodes</a></h3>
+<p>The discovery and JSON-RPC ports may conflict with an existing an Ethereum client
+on the same machine.</p>
+<p><code>--discovery-port &lt;port&gt;</code>. If an Ethereum consensus client is already running, it may be using
+the default port 9000.</p>
+<p><code>--web3-http-address &lt;ip_address&gt;:&lt;port&gt;</code>. If an Ethereum execution client is already running, it may be using the default port 8545. The localhost IP address (127.0.0.1) is recommended here.</p>
+<p><code>--web3-transport http</code>. If a new http port is specified using <code>--web3-http-address</code> (as above),
+the transport must also be changed to http from the default (ipc).</p>
+<p>To pick a new port, select a number in the range 1024–49151 and
+test if it is in use (no response indicates it is ok to use):</p>
+<pre><code class="language-sh">$ sudo ss -tulpn | grep ':9009'
+</code></pre>
+<h2 id="create-the-node-service"><a class="header" href="#create-the-node-service">Create the node service</a></h2>
+<p>Create a service to run the Trin node:</p>
+<pre><code class="language-sh">$ sudo nano /etc/systemd/system/trin.service
+</code></pre>
+<p>Paste the following, modifying flags as appropriate:</p>
+<blockquote>
+<p>Tip: Note that backslash is needed if starting a flag on a new line.</p>
+</blockquote>
+<pre><code class="language-sh">[Unit]
+Description=Trin Portal Network client
+After=network.target
+Wants=network.target
+[Service]
+User=trin
+Group=trin
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/trin \
+    --discovery-port 9009 \
+    --web3-http-address 127.0.0.1:8547 \
+    --web3-transport http \
+    --bootnodes default \
+    --kb 200000 \
+    --no-stun
+[Install]
+WantedBy=default.target
+</code></pre>
+<p>CTRL-X then CTRL-Y to exit and save.</p>
+<h2 id="add-environment-variables"><a class="header" href="#add-environment-variables">Add environment variables</a></h2>
+<p>The environment variables are going in a different file so they
+are not accidentally copy-pasted to public places. Create the <code>override.conf</code>
+file, which will be placed in a new <code>trin.service.d</code> directory beside
+the <code>trin.service</code> file:</p>
+<pre><code class="language-sh">$ sudo systemctl edit trin
+</code></pre>
+<p>Open the file:</p>
+<pre><code class="language-sh">$ sudo nano /etc/systemd/system/trin.service.d/override.conf
+</code></pre>
+<p>Paste the following, replace the Infura ID with your own.</p>
+<blockquote>
+<p>Tip: The 'info' level of logs is a good starting value.</p>
+</blockquote>
+<pre><code class="language-sh">[Service]
+# (required unless the '--trusted-provider' is set to 'local')
+Environment=&quot;TRIN_INFURA_PROJECT_ID=&lt;infura-project-id&gt;&quot;
+# (optional) Rust log level: &lt;error/warn/info/debug/trace&gt;
+Environment=&quot;RUST_LOG=info&quot;
+# (optional) This flag sets the data directory to the location we created earlier.
+Environment=&quot;TRIN_DATA_PATH=/var/lib/trin&quot;
+</code></pre>
+<h2 id="configure-firewall"><a class="header" href="#configure-firewall">Configure firewall</a></h2>
+<p>Ensure that the discovery port (custom or default 9000) is not blocked by the firewall:</p>
+<pre><code class="language-sh">$ sudo ufw allow 9009
+</code></pre>
+<p>Check the configuration:</p>
+<pre><code class="language-sh">$ sudo ufw status numbered
+</code></pre>
+<blockquote>
+<p>Tip: use <code>sudo ufw delete &lt;number&gt;</code> to remove a particular rule.</p>
+</blockquote>
+<h2 id="start-the-service"><a class="header" href="#start-the-service">Start the service</a></h2>
+<p>Start the Trin node service and enable it to start on reboot:</p>
+<pre><code class="language-sh">$ sudo systemctl daemon-reload
+$ sudo systemctl start trin
+$ sudo systemctl status trin
+$ sudo systemctl enable trin
+</code></pre>
+<p>Follow Trin's logs:</p>
+<pre><code class="language-sh">$ sudo journalctl -fu trin
+</code></pre>
+<p>CTRL-C to to exit.</p>
+<p>Logs can be searched for an &quot;exact phrase&quot;:</p>
+<pre><code class="language-sh">$ grep &quot;trin&quot; /var/log/syslog | grep &quot;exact phrase&quot;
+</code></pre>
+<p>To stop Trin and disable it from starting on reboot:</p>
+<pre><code class="language-sh">$ sudo systemctl stop trin
+$ sudo systemctl disable trin
+</code></pre>
+<h2 id="code-changes"><a class="header" href="#code-changes">Code changes</a></h2>
+<blockquote>
+<p>Tip: Use a unique discovery-port or disable the Trin service prior to running a second
+<code>cargo</code>-based instance of Trin.</p>
+</blockquote>
+<p>See <a href="getting_started.html">getting started</a> notes for more tips including setting environment
+variables during testing.</p>
+<pre><code class="language-sh">$ cargo test --workspace
+$ cargo run -- --discovery-port 9009 \
+    --web3-http-address 127.0.0.1:8547 \
+    --web3-transport http \
+    --bootnodes default \
+    --kb 200000 \
+    --no-stun
+</code></pre>
+<p>To get upstream updates, sync your fork with upstream on Github. To move any changes
+from the codebase to the service, rebuild and move the binary as before:</p>
+<pre><code class="language-sh">$ git pull
+$ cd trin
+$ cargo build --workspace --release
+$ sudo systemctl stop trin
+$ sudo cp -a ~/trin/target/release/trin /usr/local/bin/trin
+</code></pre>
+<p>Restart the service to use the new binary:</p>
+<pre><code class="language-sh">$ sudo systemctl daemon-reload
+$ sudo systemctl start trin
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../users/installation/mac_os.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../users/installation/raspberry_pi.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../users/installation/mac_os.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../users/installation/raspberry_pi.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../mermaid.min.js"></script>
+        <script src="../../mermaid-init.js"></script>
+
+
+    </div>
+    </body>
+</html>

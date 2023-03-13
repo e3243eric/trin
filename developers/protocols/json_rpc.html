@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>JSON-RPC - Trin</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../../highlight.css">
+        <link rel="stylesheet" href="../../tomorrow-night.css">
+        <link rel="stylesheet" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="../../introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../introduction/portal_network.html"><strong aria-hidden="true">1.1.</strong> Portal Network</a></li></ol></li><li class="chapter-item "><a href="../../users/index.html"><strong aria-hidden="true">2.</strong> Users</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../users/requirements.html"><strong aria-hidden="true">2.1.</strong> Requirements</a></li><li class="chapter-item "><a href="../../users/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../users/installation/mac_os.html"><strong aria-hidden="true">2.2.1.</strong> Mac Os</a></li><li class="chapter-item "><a href="../../users/installation/linux.html"><strong aria-hidden="true">2.2.2.</strong> Linux</a></li><li class="chapter-item "><a href="../../users/installation/raspberry_pi.html"><strong aria-hidden="true">2.2.3.</strong> Raspberry Pi</a></li><li class="chapter-item "><a href="../../users/installation/windows.html"><strong aria-hidden="true">2.2.4.</strong> Windows</a></li></ol></li><li class="chapter-item "><a href="../../users/startup.html"><strong aria-hidden="true">2.3.</strong> Startup</a></li><li class="chapter-item "><a href="../../users/use/index.html"><strong aria-hidden="true">2.4.</strong> Use</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../users/use/making_queries.html"><strong aria-hidden="true">2.4.1.</strong> Making queries</a></li><li class="chapter-item "><a href="../../users/use/ethereum_data.html"><strong aria-hidden="true">2.4.2.</strong> Ethereum data</a></li><li class="chapter-item "><a href="../../users/use/portal_network_data.html"><strong aria-hidden="true">2.4.3.</strong> Portal network data</a></li></ol></li><li class="chapter-item "><a href="../../users/monitoring.html"><strong aria-hidden="true">2.5.</strong> Monitoring</a></li><li class="chapter-item "><a href="../../users/problems.html"><strong aria-hidden="true">2.6.</strong> Problems</a></li><li class="chapter-item "><a href="../../users/faq.html"><strong aria-hidden="true">2.7.</strong> FAQ</a></li></ol></li><li class="chapter-item expanded "><a href="../../developers/index.html"><strong aria-hidden="true">3.</strong> Developers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/quick_setup.html"><strong aria-hidden="true">3.1.</strong> Quick setup</a></li><li class="chapter-item "><a href="../../developers/developer_stories.html"><strong aria-hidden="true">3.2.</strong> Developer stories</a></li><li class="chapter-item "><a href="../../developers/goals.html"><strong aria-hidden="true">3.3.</strong> Goals</a></li><li class="chapter-item "><a href="../../developers/progress_status.html"><strong aria-hidden="true">3.4.</strong> Progress status</a></li><li class="chapter-item "><a href="../../developers/architecture/index.html"><strong aria-hidden="true">3.5.</strong> Architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/architecture/workspaces.html"><strong aria-hidden="true">3.5.1.</strong> Workspaces</a></li><li class="chapter-item "><a href="../../developers/architecture/process_flow.html"><strong aria-hidden="true">3.5.2.</strong> Process flow</a></li><li class="chapter-item "><a href="../../developers/architecture/database.html"><strong aria-hidden="true">3.5.3.</strong> Database</a></li><li class="chapter-item "><a href="../../developers/architecture/testing.html"><strong aria-hidden="true">3.5.4.</strong> Testing</a></li></ol></li><li class="chapter-item expanded "><a href="../../developers/protocols/index.html"><strong aria-hidden="true">3.6.</strong> Protocols</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/protocols/portal_wire.html"><strong aria-hidden="true">3.6.1.</strong> Portal wire protocol</a></li><li class="chapter-item "><a href="../../developers/protocols/discovery.html"><strong aria-hidden="true">3.6.2.</strong> Discovery</a></li><li class="chapter-item "><a href="../../developers/protocols/utp.html"><strong aria-hidden="true">3.6.3.</strong> uTP</a></li><li class="chapter-item expanded "><a href="../../developers/protocols/json_rpc.html" class="active"><strong aria-hidden="true">3.6.4.</strong> JSON-RPC</a></li><li class="chapter-item "><a href="../../developers/protocols/ssz.html"><strong aria-hidden="true">3.6.5.</strong> SSZ</a></li><li class="chapter-item "><a href="../../developers/protocols/kademlia.html"><strong aria-hidden="true">3.6.6.</strong> Kademlia</a></li></ol></li><li class="chapter-item "><a href="../../developers/core_concepts/index.html"><strong aria-hidden="true">3.7.</strong> Core concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/core_concepts/finding_peers.html"><strong aria-hidden="true">3.7.1.</strong> Finding peers</a></li><li class="chapter-item "><a href="../../developers/core_concepts/chain_tip.html"><strong aria-hidden="true">3.7.2.</strong> Chain tip</a></li><li class="chapter-item "><a href="../../developers/core_concepts/cryptographic_accumulator.html"><strong aria-hidden="true">3.7.3.</strong> Cryptographic accumulator</a></li><li class="chapter-item "><a href="../../developers/core_concepts/bridge.html"><strong aria-hidden="true">3.7.4.</strong> Bridge</a></li><li class="chapter-item "><a href="../../developers/core_concepts/archive_nodes.html"><strong aria-hidden="true">3.7.5.</strong> Archive nodes</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/index.html"><strong aria-hidden="true">3.8.</strong> Contributor guidelines</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/rust/index.html"><strong aria-hidden="true">3.8.1.</strong> Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/rust/comments.html"><strong aria-hidden="true">3.8.1.1.</strong> Comments</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/imports.html"><strong aria-hidden="true">3.8.1.2.</strong> Imports</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/logging.html"><strong aria-hidden="true">3.8.1.3.</strong> Logging</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/error_handling.html"><strong aria-hidden="true">3.8.1.4.</strong> Error handling</a></li><li class="chapter-item "><a href="../../developers/contributing/rust/style.html"><strong aria-hidden="true">3.8.1.5.</strong> Style</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/git/index.html"><strong aria-hidden="true">3.8.2.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/git/commits.html"><strong aria-hidden="true">3.8.2.1.</strong> Commits</a></li><li class="chapter-item "><a href="../../developers/contributing/git/rebasing.html"><strong aria-hidden="true">3.8.2.2.</strong> Rebasing</a></li><li class="chapter-item "><a href="../../developers/contributing/git/release_notes.html"><strong aria-hidden="true">3.8.2.3.</strong> Release notes</a></li><li class="chapter-item "><a href="../../developers/contributing/git/pull_requests.html"><strong aria-hidden="true">3.8.2.4.</strong> Pull requests</a></li><li class="chapter-item "><a href="../../developers/contributing/git/code_review.html"><strong aria-hidden="true">3.8.2.5.</strong> Code review</a></li><li class="chapter-item "><a href="../../developers/contributing/git/fetching_pull_requests.html"><strong aria-hidden="true">3.8.2.6.</strong> Fetching a pull request</a></li><li class="chapter-item "><a href="../../developers/contributing/git/merging.html"><strong aria-hidden="true">3.8.2.7.</strong> Merging</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/releases/index.html"><strong aria-hidden="true">3.8.3.</strong> Releases</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="../../developers/contributing/releases/release_notes.html"><strong aria-hidden="true">3.8.3.1.</strong> Release notes</a></li><li class="chapter-item "><a href="../../developers/contributing/releases/versioning.html"><strong aria-hidden="true">3.8.3.2.</strong> Versioning</a></li><li class="chapter-item "><a href="../../developers/contributing/releases/generation.html"><strong aria-hidden="true">3.8.3.3.</strong> Generation</a></li></ol></li><li class="chapter-item "><a href="../../developers/contributing/tests.html"><strong aria-hidden="true">3.8.4.</strong> Tests</a></li><li class="chapter-item "><a href="../../developers/contributing/book.html"><strong aria-hidden="true">3.8.5.</strong> Book</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Trin</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="json-rpc"><a class="header" href="#json-rpc">JSON-RPC</a></h1>
+<p>This is a document for all JSON-RPC API endpoints currently supported by Trin. Trin plans to eventually support the entire <a href="https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/ethereum/portal-network-specs/assembled-spec/jsonrpc/openrpc.json&amp;uiSchema%5BappBar%5D%5Bui:splitView%5D=false&amp;uiSchema%5BappBar%5D%5Bui:input%5D=false&amp;uiSchema%5BappBar%5D%5Bui:examplesDropdown%5D=false">Portal Network JSON-RPC API</a> and <a href="https://eth.wiki/json-rpc/API#json-rpc-methods">Ethereum JSON-RPC API</a>.</p>
+<h2 id="currently-supported-endpoints"><a class="header" href="#currently-supported-endpoints">Currently supported endpoints</a></h2>
+<h3 id="portal-network"><a class="header" href="#portal-network">Portal Network</a></h3>
+<p>The specification for these endpoints can be found <a href="https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/ethereum/portal-network-specs/assembled-spec/jsonrpc/openrpc.json&amp;uiSchema%5BappBar%5D%5Bui:splitView%5D=false&amp;uiSchema%5BappBar%5D%5Bui:input%5D=false&amp;uiSchema%5BappBar%5D%5Bui:examplesDropdown%5D=false">here</a>.</p>
+<ul>
+<li><code>discv5_nodeInfo</code></li>
+<li><code>discv5_routingTableInfo</code></li>
+<li><code>portal_historyFindContent</code></li>
+<li><code>portal_historyFindNodes</code></li>
+<li><code>portal_historyGossip</code></li>
+<li><code>portal_historyLocalContent</code></li>
+<li><code>portal_historyPing</code></li>
+<li><code>portal_historyOffer</code></li>
+<li><code>portal_historyRecursiveFindContent</code></li>
+<li><code>portal_historyStore</code></li>
+<li><code>portal_stateFindContent</code></li>
+<li><code>portal_stateFindNodes</code></li>
+<li><code>portal_stateLocalContent</code></li>
+<li><code>portal_stateGossip</code></li>
+<li><code>portal_stateOffer</code></li>
+<li><code>portal_stateStore</code></li>
+<li><code>portal_statePing</code></li>
+</ul>
+<h3 id="ethereum-endpoints"><a class="header" href="#ethereum-endpoints">Ethereum endpoints</a></h3>
+<p>The specification for these endpoints can be found <a href="https://eth.wiki/json-rpc/API#json-rpc-methods">here</a>.</p>
+<ul>
+<li><a href="https://eth.wiki/json-rpc/API#eth_blocknumber"><code>eth_blockNumber</code></a>
+<ul>
+<li>This endpoint is currently proxied to a trusted provider (local node or Infura), and not served by the Portal Network.</li>
+</ul>
+</li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_getblockbyhash"><code>eth_getBlockByHash</code></a>
+<ul>
+<li>This endpoint relies on fetching block headers from the Portal Network, so all blocks may not be available until the Portal Network stabilizes.</li>
+</ul>
+</li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_getblockbynumber"><code>eth_getBlockByNumber</code></a>
+<ul>
+<li>This endpoint relies on the master accumulator to lookup the block hash. Since the master accumulator was frozen at the merge block, only pre-merge blocks are currently supported.</li>
+</ul>
+</li>
+<li><a href="https://eth.wiki/json-rpc/API#web3_clientversion"><code>web3_clientVersion</code></a></li>
+</ul>
+<h3 id="custom-trin-json-rpc-endpoints"><a class="header" href="#custom-trin-json-rpc-endpoints">Custom Trin JSON-RPC endpoints</a></h3>
+<p>The following endpoints are not part of the Portal Network specification and are defined
+in subsequent sections:</p>
+<ul>
+<li><a href="#portal_historyradius"><code>portal_historyRadius</code></a></li>
+<li><a href="#portal_historytracerecursivefindcontent"><code>portal_historyTraceRecursiveFindContent</code></a></li>
+<li><a href="#portal_paginatelocalcontentkeys"><code>portal_paginateLocalContentKeys</code></a></li>
+<li><a href="#portal_stateradius"><code>portal_stateRadius</code></a></li>
+</ul>
+<h1 id="history-overlay-network"><a class="header" href="#history-overlay-network">History Overlay Network</a></h1>
+<h2 id="portal_historyradius"><a class="header" href="#portal_historyradius"><code>portal_historyRadius</code></a></h2>
+<p>Returns the current data storage radius being used for the History network.</p>
+<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
+<p><code>None</code></p>
+<h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
+<ul>
+<li>Data storage radius.</li>
+</ul>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: &quot;18446744073709551615&quot;
+}
+</code></pre>
+<h2 id="portal_historytracerecursivefindcontent"><a class="header" href="#portal_historytracerecursivefindcontent"><code>portal_historyTraceRecursiveFindContent</code></a></h2>
+<p>Same as <code>portal_historyRecursiveFindContent</code>, but will also return a &quot;route&quot; with the content. The &quot;route&quot; contains all of the ENR's contacted during the lookup, and their respective distance to the target content. If the content is available in local storage, the route will contain an empty array.</p>
+<h3 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h3>
+<ul>
+<li><code>content_key</code>: Target content key.</li>
+</ul>
+<h3 id="returns-1"><a class="header" href="#returns-1">Returns</a></h3>
+<ul>
+<li>Target content value, or <code>0x</code> if the content was not found.</li>
+<li>Network ENRs traversed to find the target content along with their base-2 log distance from the content. If the target content was found in local storage, this will be an empty array.</li>
+</ul>
+<h4 id="example-1"><a class="header" href="#example-1">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: {
+	  &quot;content&quot;: &quot;0xf90217a06add1c183f1194eb132ca8079197c7f2bc43f644f96bf5ab00a93aa4be499360a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347942a65aca4d5fc5b5c859090a6c34d164135398226a05ae233f6377f0671c612ec2a8bd15c20e428094f2fafc79bead9c55a989294dda064183d9f805f4aecbf532de75e6ad276dc281ba90947ff706beeaecc14eec6f5a059cf53b2f956a914b8360ea6fe271ebe7b10461c736eb16eb1a4121ba3abbb85b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860710895564a08309a92a832fefd882520884565fc3be98d783010302844765746887676f312e352e31856c696e7578a0c5e99c6e90fbdee5650ff9b6dd41198655872ba32f810de58acb193a954e15898840f1ce50d18d7fdc&quot;,
+	  &quot;route&quot;: [{
+            &quot;enr&quot;: &quot;enr:-IS4QFoKx0TNU0i-O2Bg7qf4Ohypb14-jb7Osuotnm74UVgfXjF4ohvk55ijI_UiOyStfLjpWUZsjugayK-k8WFxhzkBgmlkgnY0gmlwhISdQv2Jc2VjcDI1NmsxoQOuY9X8mZHUYbjqVTV4dXA4LYZarOIxnhcAqb40vMU9-YN1ZHCCZoU&quot;,
+            &quot;distance&quot;: 256
+	  }]
+  }
+}
+</code></pre>
+<h1 id="state-overlay-network"><a class="header" href="#state-overlay-network">State Overlay Network</a></h1>
+<h2 id="portal_stateradius"><a class="header" href="#portal_stateradius"><code>portal_stateRadius</code></a></h2>
+<p>Returns the current data storage radius being used for the State network.</p>
+<h3 id="parameters-2"><a class="header" href="#parameters-2">Parameters</a></h3>
+<p><code>None</code></p>
+<h3 id="returns-2"><a class="header" href="#returns-2">Returns</a></h3>
+<ul>
+<li>Data storage radius.</li>
+</ul>
+<h4 id="example-2"><a class="header" href="#example-2">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: &quot;18446744073709551615&quot;
+}
+</code></pre>
+<h1 id="general"><a class="header" href="#general">General</a></h1>
+<h2 id="portal_paginatelocalcontentkeys"><a class="header" href="#portal_paginatelocalcontentkeys"><code>portal_paginateLocalContentKeys</code></a></h2>
+<p>Return a paginated list of all of the content keys (from every subnetwork) currently available in local storage.</p>
+<h3 id="parameters-3"><a class="header" href="#parameters-3">Parameters</a></h3>
+<ul>
+<li><code>offset</code>: The number of records that need to be skipped.</li>
+<li><code>limit</code>: Number of entries to return.</li>
+</ul>
+<h3 id="returns-3"><a class="header" href="#returns-3">Returns</a></h3>
+<ul>
+<li><code>content_keys</code>: List of content keys.</li>
+<li><code>total_entries</code>: Total number of content keys in local storage.</li>
+</ul>
+<h4 id="example-3"><a class="header" href="#example-3">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: {
+    &quot;content_keys&quot;: [&quot;0x0055b11b918355b1ef9c5db810302ebad0bf2544255b530cdce90674d5887bb286&quot;],
+    &quot;total_entries&quot;: 1
+  }
+}
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../developers/protocols/utp.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next" href="../../developers/protocols/ssz.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../developers/protocols/utp.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next" href="../../developers/protocols/ssz.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="../../mermaid.min.js"></script>
+        <script src="../../mermaid-init.js"></script>
+
+
+    </div>
+    </body>
+</html>

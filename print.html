@@ -1,0 +1,2138 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Trin</title>
+        <meta name="robots" content="noindex" />
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var html = document.querySelector('html');
+            var sidebar = null;
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="introduction/index.html"><strong aria-hidden="true">1.</strong> Introduction</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="introduction/portal_network.html"><strong aria-hidden="true">1.1.</strong> Portal Network</a></li></ol></li><li class="chapter-item "><a href="users/index.html"><strong aria-hidden="true">2.</strong> Users</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="users/requirements.html"><strong aria-hidden="true">2.1.</strong> Requirements</a></li><li class="chapter-item "><a href="users/installation.html"><strong aria-hidden="true">2.2.</strong> Installation</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="users/installation/mac_os.html"><strong aria-hidden="true">2.2.1.</strong> Mac Os</a></li><li class="chapter-item "><a href="users/installation/linux.html"><strong aria-hidden="true">2.2.2.</strong> Linux</a></li><li class="chapter-item "><a href="users/installation/raspberry_pi.html"><strong aria-hidden="true">2.2.3.</strong> Raspberry Pi</a></li><li class="chapter-item "><a href="users/installation/windows.html"><strong aria-hidden="true">2.2.4.</strong> Windows</a></li></ol></li><li class="chapter-item "><a href="users/startup.html"><strong aria-hidden="true">2.3.</strong> Startup</a></li><li class="chapter-item "><a href="users/use/index.html"><strong aria-hidden="true">2.4.</strong> Use</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="users/use/making_queries.html"><strong aria-hidden="true">2.4.1.</strong> Making queries</a></li><li class="chapter-item "><a href="users/use/ethereum_data.html"><strong aria-hidden="true">2.4.2.</strong> Ethereum data</a></li><li class="chapter-item "><a href="users/use/portal_network_data.html"><strong aria-hidden="true">2.4.3.</strong> Portal network data</a></li></ol></li><li class="chapter-item "><a href="users/monitoring.html"><strong aria-hidden="true">2.5.</strong> Monitoring</a></li><li class="chapter-item "><a href="users/problems.html"><strong aria-hidden="true">2.6.</strong> Problems</a></li><li class="chapter-item "><a href="users/faq.html"><strong aria-hidden="true">2.7.</strong> FAQ</a></li></ol></li><li class="chapter-item "><a href="developers/index.html"><strong aria-hidden="true">3.</strong> Developers</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/quick_setup.html"><strong aria-hidden="true">3.1.</strong> Quick setup</a></li><li class="chapter-item "><a href="developers/developer_stories.html"><strong aria-hidden="true">3.2.</strong> Developer stories</a></li><li class="chapter-item "><a href="developers/goals.html"><strong aria-hidden="true">3.3.</strong> Goals</a></li><li class="chapter-item "><a href="developers/progress_status.html"><strong aria-hidden="true">3.4.</strong> Progress status</a></li><li class="chapter-item "><a href="developers/architecture/index.html"><strong aria-hidden="true">3.5.</strong> Architecture</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/architecture/workspaces.html"><strong aria-hidden="true">3.5.1.</strong> Workspaces</a></li><li class="chapter-item "><a href="developers/architecture/process_flow.html"><strong aria-hidden="true">3.5.2.</strong> Process flow</a></li><li class="chapter-item "><a href="developers/architecture/database.html"><strong aria-hidden="true">3.5.3.</strong> Database</a></li><li class="chapter-item "><a href="developers/architecture/testing.html"><strong aria-hidden="true">3.5.4.</strong> Testing</a></li></ol></li><li class="chapter-item "><a href="developers/protocols/index.html"><strong aria-hidden="true">3.6.</strong> Protocols</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/protocols/portal_wire.html"><strong aria-hidden="true">3.6.1.</strong> Portal wire protocol</a></li><li class="chapter-item "><a href="developers/protocols/discovery.html"><strong aria-hidden="true">3.6.2.</strong> Discovery</a></li><li class="chapter-item "><a href="developers/protocols/utp.html"><strong aria-hidden="true">3.6.3.</strong> uTP</a></li><li class="chapter-item "><a href="developers/protocols/json_rpc.html"><strong aria-hidden="true">3.6.4.</strong> JSON-RPC</a></li><li class="chapter-item "><a href="developers/protocols/ssz.html"><strong aria-hidden="true">3.6.5.</strong> SSZ</a></li><li class="chapter-item "><a href="developers/protocols/kademlia.html"><strong aria-hidden="true">3.6.6.</strong> Kademlia</a></li></ol></li><li class="chapter-item "><a href="developers/core_concepts/index.html"><strong aria-hidden="true">3.7.</strong> Core concepts</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/core_concepts/finding_peers.html"><strong aria-hidden="true">3.7.1.</strong> Finding peers</a></li><li class="chapter-item "><a href="developers/core_concepts/chain_tip.html"><strong aria-hidden="true">3.7.2.</strong> Chain tip</a></li><li class="chapter-item "><a href="developers/core_concepts/cryptographic_accumulator.html"><strong aria-hidden="true">3.7.3.</strong> Cryptographic accumulator</a></li><li class="chapter-item "><a href="developers/core_concepts/bridge.html"><strong aria-hidden="true">3.7.4.</strong> Bridge</a></li><li class="chapter-item "><a href="developers/core_concepts/archive_nodes.html"><strong aria-hidden="true">3.7.5.</strong> Archive nodes</a></li></ol></li><li class="chapter-item "><a href="developers/contributing/index.html"><strong aria-hidden="true">3.8.</strong> Contributor guidelines</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/contributing/rust/index.html"><strong aria-hidden="true">3.8.1.</strong> Rust</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/contributing/rust/comments.html"><strong aria-hidden="true">3.8.1.1.</strong> Comments</a></li><li class="chapter-item "><a href="developers/contributing/rust/imports.html"><strong aria-hidden="true">3.8.1.2.</strong> Imports</a></li><li class="chapter-item "><a href="developers/contributing/rust/logging.html"><strong aria-hidden="true">3.8.1.3.</strong> Logging</a></li><li class="chapter-item "><a href="developers/contributing/rust/error_handling.html"><strong aria-hidden="true">3.8.1.4.</strong> Error handling</a></li><li class="chapter-item "><a href="developers/contributing/rust/style.html"><strong aria-hidden="true">3.8.1.5.</strong> Style</a></li></ol></li><li class="chapter-item "><a href="developers/contributing/git/index.html"><strong aria-hidden="true">3.8.2.</strong> Git</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/contributing/git/commits.html"><strong aria-hidden="true">3.8.2.1.</strong> Commits</a></li><li class="chapter-item "><a href="developers/contributing/git/rebasing.html"><strong aria-hidden="true">3.8.2.2.</strong> Rebasing</a></li><li class="chapter-item "><a href="developers/contributing/git/release_notes.html"><strong aria-hidden="true">3.8.2.3.</strong> Release notes</a></li><li class="chapter-item "><a href="developers/contributing/git/pull_requests.html"><strong aria-hidden="true">3.8.2.4.</strong> Pull requests</a></li><li class="chapter-item "><a href="developers/contributing/git/code_review.html"><strong aria-hidden="true">3.8.2.5.</strong> Code review</a></li><li class="chapter-item "><a href="developers/contributing/git/fetching_pull_requests.html"><strong aria-hidden="true">3.8.2.6.</strong> Fetching a pull request</a></li><li class="chapter-item "><a href="developers/contributing/git/merging.html"><strong aria-hidden="true">3.8.2.7.</strong> Merging</a></li></ol></li><li class="chapter-item "><a href="developers/contributing/releases/index.html"><strong aria-hidden="true">3.8.3.</strong> Releases</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="developers/contributing/releases/release_notes.html"><strong aria-hidden="true">3.8.3.1.</strong> Release notes</a></li><li class="chapter-item "><a href="developers/contributing/releases/versioning.html"><strong aria-hidden="true">3.8.3.2.</strong> Versioning</a></li><li class="chapter-item "><a href="developers/contributing/releases/generation.html"><strong aria-hidden="true">3.8.3.3.</strong> Generation</a></li></ol></li><li class="chapter-item "><a href="developers/contributing/tests.html"><strong aria-hidden="true">3.8.4.</strong> Tests</a></li><li class="chapter-item "><a href="developers/contributing/book.html"><strong aria-hidden="true">3.8.5.</strong> Book</a></li></ol></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky bordered">
+                    <div class="left-buttons">
+                        <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Trin</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
+<blockquote>
+<p>This book is about Trin, which is software used to interact with the Ethereum protocol
+via the Portal Network.</p>
+</blockquote>
+<p>Trin is a Portal network client which acts as a json-rpc server with:</p>
+<ul>
+<li>Nearly instant sync</li>
+<li>Low CPU &amp; storage usage</li>
+</ul>
+<p>The Ethereum protocol will allow full nodes to forget old data in an
+likely future upgrade. Portal network nodes can supply users with that data.</p>
+<p>Trin makes it possible to access Ethereum with less computer resources
+than a regular full node. It does this by spreading data amongst peers.</p>
+<pre class="mermaid">flowchart TB
+    subgraph Full node data: on one computer
+    full[Regular full node]
+    end
+    subgraph Full node data: spread amongst computers
+    p1[Portal node]
+    p2[Portal node]
+    p3[Portal node]
+    p1 &lt;--&gt; p2
+    p2 &lt;--&gt; p3
+    p1 &lt;--&gt; p3
+
+    end
+
+</pre>
+<p>🏗 The sections, content and links of this book are subject to change.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="portal-network"><a class="header" href="#portal-network">Portal Network</a></h1>
+<p>The portal network is a response to two needs. Users should have the ability to:</p>
+<ul>
+<li>Access Ethereum using peers (not providers) from 'small' computers.
+<ul>
+<li>An old nice-to-have.</li>
+</ul>
+</li>
+<li>Access historical data once &quot;history expiry&quot; upgrade goes live
+<ul>
+<li>A likely future need.</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-is-history-expiry"><a class="header" href="#what-is-history-expiry">What is &quot;history expiry&quot;</a></h2>
+<p><a href="https://eips.ethereum.org/EIPS/eip-4444">EIP-4444: Bound Historical Data in Execution Clients</a>
+is an upgrade that seeks to limit the costs of participating in the network. It does this
+by allowing by clearing data older than 1 year.</p>
+<h2 id="how-the-portal-network-works"><a class="header" href="#how-the-portal-network-works">How the Portal network works</a></h2>
+<h3 id="small-users-working-together"><a class="header" href="#small-users-working-together">Small users working together</a></h3>
+<pre class="mermaid">graph TD;
+    A &amp; B &amp; C &amp; D &amp; E &amp; F &amp; G &amp; H &amp; I --&gt; id5[complete network data];
+</pre>
+<p>The portal network consists of many small nodes that each contribute to the whole.
+Each node is allocated a specific part of the network to obtain from peers and
+serve back to the network.</p>
+<p>The portal network splits data in to different types (e.g., blocks vs new transactions).
+Each distinct type is effectively a new network. A portal client such as Trin can be used to
+operate on each/all of these different sub-protocols.</p>
+<h3 id="dedicated-sub-protocols"><a class="header" href="#dedicated-sub-protocols">Dedicated sub-protocols</a></h3>
+<p>Users can elect to be part of some sub-networks:</p>
+<pre class="mermaid">graph TD;
+    A &amp; B &amp; C --&gt; id1[(History)]
+    D &amp; E &amp; F --&gt; id2[(State)]
+    A &amp; G &amp; I --&gt; id4[(Indices)]
+    C &amp; E &amp; H --&gt; id3[(Txs)]
+    id1[(History)] &amp; id2[(State)] &amp; id3[(Txs)] &amp; id4[(Indices)] --&gt; id5[complete network data];
+</pre>
+<h3 id="peer-referrals-based-on-names"><a class="header" href="#peer-referrals-based-on-names">Peer referrals based on names</a></h3>
+<p>Nodes make requests to each other for data. If they don't have the data, they look at their peers and
+suggest one that is most likely to.</p>
+<pre class="mermaid">graph LR;
+    id1[A requests data] -.-&gt; D &amp; E
+    D -.-&gt; F &amp; G
+    id1[A requests data] ---&gt; B ---&gt;  id2[C has data]
+    E -.-&gt; F
+    B &amp; G -.-&gt; I
+</pre>
+<h3 id="standard-requests"><a class="header" href="#standard-requests">Standard requests</a></h3>
+<p>Node each have a name, and only hold data that is similar to that name. Peers can tell who
+is likely to have what data based on these names.</p>
+<pre class="mermaid">sequenceDiagram
+    Alice--&gt;&gt;Bob: Looking for data 0xabc
+    Bob--&gt;&gt;Alice: Sorry, but try Charlie (gives address)
+    Alice--&gt;&gt;Charlie: Looking for data 0xabc
+    Charlie--&gt;&gt;Alice: I have it, do you want?
+    Alice--&gt;&gt;Charlie: Yes
+    Charlie-&gt;&gt;Alice: Data 0xabc
+</pre>
+<h3 id="tunable-resources"><a class="header" href="#tunable-resources">Tunable resources</a></h3>
+<p>Nodes keep content that is similar to their name. That similarity radius can be made
+larger to voluntarily hold more data.</p>
+<pre class="mermaid">graph TD;
+    id1[(Alice with big hard drive)]
+    id2[(Bob)]
+    id4[(Charlie, medium)]
+</pre>
+<p>In addition to Trin, other portal clients are in development and participate in the same network.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="users"><a class="header" href="#users">Users</a></h1>
+<p>The following are users who are well-suited to using Trin.</p>
+<h2 id="laptop-wallet-user"><a class="header" href="#laptop-wallet-user">Laptop wallet user</a></h2>
+<p>A user has a laptop that frequently is turned off. When
+they want to transact, they can turn on Trin and connect their
+wallet to it.</p>
+<p><em>Benefit</em>: Wallet use without reliance on third party wallet APIs.</p>
+<h2 id="desktop-wallet-user"><a class="header" href="#desktop-wallet-user">Desktop wallet user</a></h2>
+<p>A user has a desktop that usually on, but most of the disk is used for other things.
+When they want to transact, their wallet is already connected to their portal node.</p>
+<p><em>Benefit</em>: Wallet use without reliance on third party wallet APIs. Contributes to
+network health without using entire disk.</p>
+<h2 id="protocol-experimentation"><a class="header" href="#protocol-experimentation">Protocol experimentation</a></h2>
+<p>A researcher looking to explore the Ethereum protocol, testing out
+specific aspects and perhaps making experimental changes to the protocol.</p>
+<p><em>Benefit</em>: Spin up a node and play around quickly and with low cost.</p>
+<h2 id="single-board-computer-hobbyist"><a class="header" href="#single-board-computer-hobbyist">Single board computer hobbyist</a></h2>
+<p>A raspberry pi 3, or similarly-sized computer with could contribute
+to network health.</p>
+<p>Currently a raspberry pi 4 can run a full node, with consensus
+and execution clients, however this is a bit tight and requires a ~2TB SSD.</p>
+<p><em>Benefit</em>: Learn about Ethereum, get node access and provide the
+network with additional robustness.</p>
+<h2 id="mobile-user"><a class="header" href="#mobile-user">Mobile user</a></h2>
+<p>Trin is not currently configured to run on mobile, however this is plausibly
+a viable and interesting use case. A trin node could run as a background
+task with configurable limits on disk, CPU and bandwidth use.</p>
+<p><em>Benefit</em>: Wallet use without reliance on third party wallet APIs. Contributes to
+network health.</p>
+<h2 id="unsuitable-users"><a class="header" href="#unsuitable-users">Unsuitable users</a></h2>
+<p>There are situations where Trin is estimated to not be a good node choice:</p>
+<ul>
+<li>Time-critical chain tip data. Likely that data distribution may not be fast enough for these
+use cases, however testing may show otherwise.
+<ul>
+<li>Consensus participation. Beacon chain staking with a Consensus client with Portal Network node as Execution client.</li>
+<li>Block builder. Serving blocks to beacon chain validator nodes via MEV-boost</li>
+</ul>
+</li>
+<li>Data analysis requiring state at historical blocks. Trin is not an archive node and does not
+expose <code>trace_</code>* or<code> debug_</code>* endpoints.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="requirements"><a class="header" href="#requirements">Requirements</a></h1>
+<h2 id="hardware"><a class="header" href="#hardware">Hardware</a></h2>
+<p>Suitable:</p>
+<ul>
+<li>Processor: x86 or Arm based. Minimum spec TBD.</li>
+<li>RAM: Minimum TBD.</li>
+<li>Disk: Any.</li>
+</ul>
+<p>Testing and reports of performance on the following are welcome:</p>
+<ul>
+<li>RISC-V based processor.</li>
+<li>Resource constrained (CPU/RAM)</li>
+</ul>
+<h2 id="software"><a class="header" href="#software">Software</a></h2>
+<ul>
+<li>Unix based operating system</li>
+<li>Rust installation (minimum <code>v1.66</code>)</li>
+</ul>
+<h2 id="network"><a class="header" href="#network">Network</a></h2>
+<p>Testing/reports of low-bandwidth network are welcome.</p>
+<p>Trin should be compatible with VPN use, but if you experience difficulty
+connecting to the network we recommend disabling your VPN.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installation"><a class="header" href="#installation">Installation</a></h1>
+<p>The following are guides for installation on different platforms.
+Other methods may be used as appropriate.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mac-os"><a class="header" href="#mac-os">Mac Os</a></h1>
+<p>Clone trin and run.</p>
+<pre><code class="language-sh">$ cd ~
+$ git clone https://github.com/ethereum/trin.git
+$ cd trin
+$ cargo run -p trin --release
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="linux"><a class="header" href="#linux">Linux</a></h1>
+<h2 id="trin-on-ubuntu"><a class="header" href="#trin-on-ubuntu">Trin on Ubuntu</a></h2>
+<p>These steps are for setting up a Trin node as a service on Ubuntu.</p>
+<h2 id="installation-1"><a class="header" href="#installation-1">Installation</a></h2>
+<pre><code class="language-sh">$ sudo apt install libssl-dev librocksdb-dev libclang-dev pkg-config build-essentials
+</code></pre>
+<p>Install Trin:</p>
+<blockquote>
+<p>Tip: If you intend to submit code changes to trin, first fork the repo and
+then clone that url.</p>
+</blockquote>
+<pre><code class="language-sh">$ cd ~
+$ git clone https://github.com/ethereum/trin.git
+$ cd trin
+$ cargo build --workspace --release
+</code></pre>
+<p>Now the executable is located in <code>trin/target/release</code> and can be called by systemd.
+Move that binary to the standard location for binaries:</p>
+<pre><code class="language-sh">$ sudo cp -a ~/trin/target/release/trin /usr/local/bin/trin
+</code></pre>
+<blockquote>
+<p>Tip: If you make changes to these steps, keep a record for future reference.</p>
+</blockquote>
+<p>Make a new user for the Trin service:</p>
+<pre><code class="language-sh">$ sudo useradd --no-create-home --shell /bin/false trin
+</code></pre>
+<p>Make a directory for Trin data and give the Trin user permission to access it:</p>
+<pre><code class="language-sh">$ sudo mkdir -p /var/lib/trin
+$ sudo chown -R trin:trin /var/lib/trin
+</code></pre>
+<p>Check that the binary works:</p>
+<pre><code class="language-sh">$ /usr/local/bin/trin --version
+</code></pre>
+<p>Example response:</p>
+<pre><code class="language-sh">&gt; Launching trin
+&gt; trin 0.0.1
+</code></pre>
+<h2 id="configuration"><a class="header" href="#configuration">Configuration</a></h2>
+<p>Before setting up the service, look at the flags that can be set when starting Trin:</p>
+<pre><code class="language-sh">$ /usr/local/bin/trin --help
+</code></pre>
+<p>Some selected flags are described below.</p>
+<h3 id="optional-flag-for-database-size"><a class="header" href="#optional-flag-for-database-size">Optional flag for database size</a></h3>
+<p><code>--kb 200000</code>. Trin lets you control how much storage the node takes up (e.g., 200MB). The default is
+100_000 kilobytes and can be changed.</p>
+<h3 id="optional-flag-for-no-connection-to-external-server"><a class="header" href="#optional-flag-for-no-connection-to-external-server">Optional flag for no connection to external server</a></h3>
+<p><code>--no-stun</code>. A third party server connection is configured by default to assist in testing.
+This is a Session Traversal Utilities for NAT (STUN) server and may be disabled
+a flag. The docs state: &quot;Do not use STUN to determine an external IP. Leaves
+ENR entry for IP blank. Some users report better connections over VPN.&quot;</p>
+<h3 id="optional-flags-for-conflicting-nodes"><a class="header" href="#optional-flags-for-conflicting-nodes">Optional flags for conflicting nodes</a></h3>
+<p>The discovery and JSON-RPC ports may conflict with an existing an Ethereum client
+on the same machine.</p>
+<p><code>--discovery-port &lt;port&gt;</code>. If an Ethereum consensus client is already running, it may be using
+the default port 9000.</p>
+<p><code>--web3-http-address &lt;ip_address&gt;:&lt;port&gt;</code>. If an Ethereum execution client is already running, it may be using the default port 8545. The localhost IP address (127.0.0.1) is recommended here.</p>
+<p><code>--web3-transport http</code>. If a new http port is specified using <code>--web3-http-address</code> (as above),
+the transport must also be changed to http from the default (ipc).</p>
+<p>To pick a new port, select a number in the range 1024–49151 and
+test if it is in use (no response indicates it is ok to use):</p>
+<pre><code class="language-sh">$ sudo ss -tulpn | grep ':9009'
+</code></pre>
+<h2 id="create-the-node-service"><a class="header" href="#create-the-node-service">Create the node service</a></h2>
+<p>Create a service to run the Trin node:</p>
+<pre><code class="language-sh">$ sudo nano /etc/systemd/system/trin.service
+</code></pre>
+<p>Paste the following, modifying flags as appropriate:</p>
+<blockquote>
+<p>Tip: Note that backslash is needed if starting a flag on a new line.</p>
+</blockquote>
+<pre><code class="language-sh">[Unit]
+Description=Trin Portal Network client
+After=network.target
+Wants=network.target
+[Service]
+User=trin
+Group=trin
+Type=simple
+Restart=always
+RestartSec=5
+ExecStart=/usr/local/bin/trin \
+    --discovery-port 9009 \
+    --web3-http-address 127.0.0.1:8547 \
+    --web3-transport http \
+    --bootnodes default \
+    --kb 200000 \
+    --no-stun
+[Install]
+WantedBy=default.target
+</code></pre>
+<p>CTRL-X then CTRL-Y to exit and save.</p>
+<h2 id="add-environment-variables"><a class="header" href="#add-environment-variables">Add environment variables</a></h2>
+<p>The environment variables are going in a different file so they
+are not accidentally copy-pasted to public places. Create the <code>override.conf</code>
+file, which will be placed in a new <code>trin.service.d</code> directory beside
+the <code>trin.service</code> file:</p>
+<pre><code class="language-sh">$ sudo systemctl edit trin
+</code></pre>
+<p>Open the file:</p>
+<pre><code class="language-sh">$ sudo nano /etc/systemd/system/trin.service.d/override.conf
+</code></pre>
+<p>Paste the following, replace the Infura ID with your own.</p>
+<blockquote>
+<p>Tip: The 'info' level of logs is a good starting value.</p>
+</blockquote>
+<pre><code class="language-sh">[Service]
+# (required unless the '--trusted-provider' is set to 'local')
+Environment=&quot;TRIN_INFURA_PROJECT_ID=&lt;infura-project-id&gt;&quot;
+# (optional) Rust log level: &lt;error/warn/info/debug/trace&gt;
+Environment=&quot;RUST_LOG=info&quot;
+# (optional) This flag sets the data directory to the location we created earlier.
+Environment=&quot;TRIN_DATA_PATH=/var/lib/trin&quot;
+</code></pre>
+<h2 id="configure-firewall"><a class="header" href="#configure-firewall">Configure firewall</a></h2>
+<p>Ensure that the discovery port (custom or default 9000) is not blocked by the firewall:</p>
+<pre><code class="language-sh">$ sudo ufw allow 9009
+</code></pre>
+<p>Check the configuration:</p>
+<pre><code class="language-sh">$ sudo ufw status numbered
+</code></pre>
+<blockquote>
+<p>Tip: use <code>sudo ufw delete &lt;number&gt;</code> to remove a particular rule.</p>
+</blockquote>
+<h2 id="start-the-service"><a class="header" href="#start-the-service">Start the service</a></h2>
+<p>Start the Trin node service and enable it to start on reboot:</p>
+<pre><code class="language-sh">$ sudo systemctl daemon-reload
+$ sudo systemctl start trin
+$ sudo systemctl status trin
+$ sudo systemctl enable trin
+</code></pre>
+<p>Follow Trin's logs:</p>
+<pre><code class="language-sh">$ sudo journalctl -fu trin
+</code></pre>
+<p>CTRL-C to to exit.</p>
+<p>Logs can be searched for an &quot;exact phrase&quot;:</p>
+<pre><code class="language-sh">$ grep &quot;trin&quot; /var/log/syslog | grep &quot;exact phrase&quot;
+</code></pre>
+<p>To stop Trin and disable it from starting on reboot:</p>
+<pre><code class="language-sh">$ sudo systemctl stop trin
+$ sudo systemctl disable trin
+</code></pre>
+<h2 id="code-changes"><a class="header" href="#code-changes">Code changes</a></h2>
+<blockquote>
+<p>Tip: Use a unique discovery-port or disable the Trin service prior to running a second
+<code>cargo</code>-based instance of Trin.</p>
+</blockquote>
+<p>See <a href="users/installation/getting_started.html">getting started</a> notes for more tips including setting environment
+variables during testing.</p>
+<pre><code class="language-sh">$ cargo test --workspace
+$ cargo run -- --discovery-port 9009 \
+    --web3-http-address 127.0.0.1:8547 \
+    --web3-transport http \
+    --bootnodes default \
+    --kb 200000 \
+    --no-stun
+</code></pre>
+<p>To get upstream updates, sync your fork with upstream on Github. To move any changes
+from the codebase to the service, rebuild and move the binary as before:</p>
+<pre><code class="language-sh">$ git pull
+$ cd trin
+$ cargo build --workspace --release
+$ sudo systemctl stop trin
+$ sudo cp -a ~/trin/target/release/trin /usr/local/bin/trin
+</code></pre>
+<p>Restart the service to use the new binary:</p>
+<pre><code class="language-sh">$ sudo systemctl daemon-reload
+$ sudo systemctl start trin
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="raspberry-pi"><a class="header" href="#raspberry-pi">Raspberry Pi</a></h1>
+<p>Not yet attempted, but experiments are encouraged.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="windows"><a class="header" href="#windows">Windows</a></h1>
+<p>Future support is planned once Trin development is stable.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="startup"><a class="header" href="#startup">Startup</a></h1>
+<p>Configuration occurs at startup via flags:</p>
+<pre><code class="language-sh">cargo run -p trin -- --flag1 value --flag2 value
+</code></pre>
+<p>Backslashes allow flags to be on new lines for easier reading.</p>
+<pre><code class="language-sh">cargo run -p trin -- \
+    --flag1 value \
+    --flag2 value \
+    --flag3 value1,value2 \
+</code></pre>
+<h2 id="flags"><a class="header" href="#flags">Flags</a></h2>
+<p>For the most up to date flags run:</p>
+<pre><code class="language-sh">cargo run -p trin -- --help
+</code></pre>
+<h3 id="bootnodes"><a class="header" href="#bootnodes">Bootnodes</a></h3>
+<p>To quickly connect to the testnet use the <code>--bootnodes default</code> flag.</p>
+<h3 id="control-disk-use"><a class="header" href="#control-disk-use">Control disk use</a></h3>
+<p>Trin can be tuned to control how much disk space is used:</p>
+<div class="table-wrapper"><table><thead><tr><th>Selected size</th><th>Data acess</th><th>Network contribution</th></tr></thead><tbody>
+<tr><td>Smaller</td><td>Slower</td><td>Less</td></tr>
+<tr><td>Larger</td><td>Faster</td><td>More</td></tr>
+</tbody></table>
+</div>
+<p>See the <code>--kb</code> flag.</p>
+<h3 id="sub-protocols"><a class="header" href="#sub-protocols">Sub-Protocols</a></h3>
+<p>Trin can connect to different sub-protocols to have access to
+different types of data. One more more can be selected, but be aware
+that not all sub-protocols are ready:</p>
+<ul>
+<li>Execution State Network</li>
+<li>Execution History Network</li>
+<li>Execution Transaction Gossip Network</li>
+<li>Execution Canonical Indices Network</li>
+</ul>
+<h3 id="networking-configuration"><a class="header" href="#networking-configuration">Networking configuration</a></h3>
+<p>Optionally one can specify Trin's network proprties:</p>
+<ul>
+<li>What sort of network connections (HTPP vs IPC)</li>
+<li>Port answering Ethereum-related queries</li>
+<li>Port for connecting to other nodes</li>
+</ul>
+<p>These types of flags have defaults.</p>
+<h3 id="connect-to-a-full-node"><a class="header" href="#connect-to-a-full-node">Connect to a full node</a></h3>
+<p>During development of the Portal Network, some parts of the network
+are not yet available. A connection to a full (Execution) node allows
+Trin to use that node when necessary.</p>
+<p>For example: If the state network is not live, state data requests
+to Trin will be forwarded to the full node.</p>
+<p>If a node is not provided, Trin requires connection to Infura, and will
+ask for an Infura key upon startup. See the <code>--trusted-provider</code> flag for more.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="use"><a class="header" href="#use">Use</a></h1>
+<p>Once Trin is running, it will be serving Ethereum data in response to requests.
+This can be accessed by other programs, such as a wallet in a web browser.</p>
+<p>Once Trin is running, another program will be able to communicate with Trin as it
+would any other Ethereum node.</p>
+<p>Additionally, commands can be made in the terminal to test functionality.
+See sections below for more detail.</p>
+<h2 id="wallet-connection"><a class="header" href="#wallet-connection">Wallet connection</a></h2>
+<p>Open the wallet and look for options to configure &quot;node/rpc/provider&quot;.</p>
+<p>Create a custom connection by providing the following:</p>
+<pre><code class="language-sh">http://127.0.0.1:8545
+</code></pre>
+<p>Which specifies:</p>
+<ul>
+<li>HTTP protocol (rather than IPC)</li>
+<li>Localhost (127.0.0.1), (internal rather than an external address)</li>
+<li>Port (8545 by default)</li>
+</ul>
+<p>Note that Ethereum mainnet has a <code>ChainID</code> of <code>1</code>.</p>
+<h2 id="access-from-different-computer"><a class="header" href="#access-from-different-computer">Access from different computer</a></h2>
+<p>If Trin is started on <code>host</code> computer by <code>user</code>, serving data over HTTP <code>port</code>
+then the following command can be issued on another computer to send requests to Trin
+and receive responses:</p>
+<pre><code class="language-sh">ssh -N -L &lt;port&gt;:127.0.0.1:&lt;port&gt; &lt;user&gt;@&lt;host&gt;
+</code></pre>
+<p>For example:</p>
+<pre><code class="language-sh">ssh -N -L 8545:127.0.0.1:8545 username@mycomputer
+</code></pre>
+<p>Accessing Trin from another computer using IPC is not covered here.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="making-queries"><a class="header" href="#making-queries">Making queries</a></h1>
+<p>If you want to manually query trin, the following patterns can be used, depending on whether
+Trin was started with <code>--web3-transport</code> as <code>http</code> or <code>ipc</code>.</p>
+<h2 id="query-form"><a class="header" href="#query-form">Query form</a></h2>
+<p>A query for JSON-RPC has the following form for a call to <code>&quot;methodname&quot;</code> that accepts two
+parameters: <code>parameter_one</code> and <code>parameter_two</code>.</p>
+<p>Query:</p>
+<pre><code class="language-json">{
+    &quot;jsonrpc&quot;: &quot;2.0&quot;,
+    &quot;method&quot;: &quot;&lt;methodname&gt;&quot;,
+    &quot;params&quot;: [&quot;&lt;parameter_one&gt;&quot;, &quot;&lt;parameter_two&gt;&quot;],
+    &quot;id&quot;:1
+}
+</code></pre>
+<p>Usually passed on one line:</p>
+<pre><code class="language-json">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;&lt;methodname&gt;&quot;,&quot;params&quot;:[&quot;&lt;parameter_one&gt;&quot;, &quot;&lt;parameter_two&gt;&quot;],&quot;id&quot;:1}
+</code></pre>
+<h2 id="http-transport"><a class="header" href="#http-transport">HTTP transport</a></h2>
+<p>Command for <code>query</code> (above) to HTTP server on <code>port</code>:</p>
+<pre><code class="language-sh">curl -X POST -H &quot;Content-Type: application/json&quot; -d '&lt;query&gt;' localhost:&lt;port&gt; | jq
+</code></pre>
+<h2 id="ipc-transport"><a class="header" href="#ipc-transport">IPC transport</a></h2>
+<p>Command for <code>query</code> (above) to IPC server with socket file located at <code>/path/to/ipc</code>:</p>
+<pre><code class="language-sh">echo '&lt;query&gt;' | nc -U &lt;/path/to/ipc&gt; | jq
+</code></pre>
+<h2 id="response"><a class="header" href="#response">Response</a></h2>
+<p>If the data is not in the network the following response is expected:</p>
+<pre><code class="language-json">{
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;id&quot;: 1,
+  &quot;result&quot;: &quot;0x&quot;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ethereum-data"><a class="header" href="#ethereum-data">Ethereum data</a></h1>
+<p>Trin is designed to eventually serve the JSON-RPC methods that an Ethereum full node would
+provide. This includes methods the start with the <code>eth_</code> namespace.</p>
+<p>Here is an example of making an <code>eth_blockNumber</code> request to a node serving over HTTP to get
+the latest block number.</p>
+<pre><code class="language-json">{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;eth_blockNumber&quot;, &quot;params&quot;: [], &quot;id&quot;:1}
+</code></pre>
+<h2 id="http"><a class="header" href="#http">HTTP</a></h2>
+<pre><code class="language-sh">curl -X POST -H &quot;Content-Type: application/json&quot; -d '{&quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;eth_blockNumber&quot;, &quot;params&quot;: [], &quot;id&quot;:1}' localhost:8545 | jq
+</code></pre>
+<h2 id="ipc"><a class="header" href="#ipc">IPC</a></h2>
+<pre><code class="language-sh">echo '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:1}' | nc -U /tmp/trin-jsonrpc.ipc | jq
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="portal-network-data"><a class="header" href="#portal-network-data">Portal network data</a></h1>
+<p>There are methods for requesting data that are specific to:</p>
+<ul>
+<li>Each sub-protocol (history, state, etc.)
+<ul>
+<li><code>portal_history*</code></li>
+<li><code>portal_state*</code></li>
+</ul>
+</li>
+<li>Discovery protocol
+<ul>
+<li><code>discv5_*</code></li>
+</ul>
+</li>
+</ul>
+<p>See the Portal Network JSON-RPC specification
+<a href="https://github.com/ethereum/portal-network-specs/tree/master/jsonrpc">here</a>
+for a comprehensive and interactive view of specific methods available.</p>
+<h2 id="designing-a-query"><a class="header" href="#designing-a-query">Designing a Query</a></h2>
+<p>One can identify data by its &quot;content key&quot;. The following queries ask Trin to speak with
+peers, looking for a particular piece of data.</p>
+<p>Let us request the block body for block 16624561</p>
+<ul>
+<li>Block hash: <code>0xd27f5e55d88b447788667b3d72cca66b7c944160f68f0a62aaf02aa7e4b2af17</code></li>
+<li>Selector for a block body: <code>0x01</code> (defined in Portal Network spec under the History sub-protocol).</li>
+<li>Content key: <code>0x01d27f5e55d88b447788667b3d72cca66b7c944160f68f0a62aaf02aa7e4b2af17</code></li>
+<li>Request: <code>portal_historyRecursiveFindContent</code>, which accepts a content key as a parameter</li>
+</ul>
+<pre><code class="language-json">{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;portal_historyRecursiveFindContent&quot;,&quot;params&quot;:[&quot;0x01d27f5e55d88b447788667b3d72cca66b7c944160f68f0a62aaf02aa7e4b2af17&quot;],&quot;id&quot;:1}
+</code></pre>
+<h2 id="http-1"><a class="header" href="#http-1">HTTP</a></h2>
+<pre><code class="language-sh">curl -X POST -H 'Content-Type: application/json' -d '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;portal_historyRecursiveFindContent&quot;,&quot;params&quot;:[&quot;0x01d27f5e55d88b447788667b3d72cca66b7c944160f68f0a62aaf02aa7e4b2af17&quot;],&quot;id&quot;:1}' http://localhost:8545 | jq
+</code></pre>
+<h2 id="ipc-1"><a class="header" href="#ipc-1">IPC</a></h2>
+<pre><code class="language-sh">echo '{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;portal_historyRecursiveFindContent&quot;,&quot;params&quot;:[&quot;0x01d27f5e55d88b447788667b3d72cca66b7c944160f68f0a62aaf02aa7e4b2af17&quot;],&quot;id&quot;:1}' | nc -U /tmp/trin-jsonrpc.ipc | jq
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="monitoring"><a class="header" href="#monitoring">Monitoring</a></h1>
+<p>Once Trin is running, the following may be useful</p>
+<h2 id="logs"><a class="header" href="#logs">Logs</a></h2>
+<p>If errors are encountered, they will be logged to the console in which
+Trin was started.</p>
+<p>Be aware that The <code>RUST_LOG</code> variable allows for control of what logs are visible.</p>
+<ul>
+<li><code>RUST_LOG=info cargo run -p trin</code></li>
+<li><code>RUST_LOG=debug cargo run -p trin</code></li>
+</ul>
+<p>If started as a systemd service logs will be visible with:</p>
+<pre><code class="language-sh">journalctl -fu &lt;trin-service-name&gt;.service
+</code></pre>
+<h2 id="disk-use"><a class="header" href="#disk-use">Disk use</a></h2>
+<p>The following locations are where trin stores data by default:</p>
+<ul>
+<li>Mac Os: <code>~/Library/Application Support/trin</code></li>
+<li>Unix-like: <code>$HOME/.local/share/trin</code></li>
+</ul>
+<pre><code class="language-sh">cd /path/to/data
+du -sh
+</code></pre>
+<h2 id="cpu-and-memory-use"><a class="header" href="#cpu-and-memory-use">CPU and memory use</a></h2>
+<p><code>htop</code> can be used to see the CPU and memory used by trin</p>
+<ul>
+<li>Ubuntu: <code>sudo apt install htop</code></li>
+<li>Mac Os: <code>brew install htop</code></li>
+</ul>
+<pre><code class="language-sh">htop
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="problems"><a class="header" href="#problems">Problems</a></h1>
+<p>If you encounter a problem, keep in mind that Trin is under active development.
+Some issues may be lower on the priority list.</p>
+<h2 id="search-for-more-information"><a class="header" href="#search-for-more-information">Search for more information</a></h2>
+<p>Try searching:</p>
+<ul>
+<li>This book</li>
+<li>The Trin repository issues</li>
+</ul>
+<h2 id="document-the-problem"><a class="header" href="#document-the-problem">Document the problem</a></h2>
+<p>If the problem seems new, <a href="https://github.com/ethereum/trin/issues">raise an issue</a>
+in the Trin repository.
+Try to record the problem details and include those in the issue.
+Include details for how someone else might reproduce the problem you have.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="faq"><a class="header" href="#faq">FAQ</a></h1>
+<p>The following are frequently asked questions or topics that may be of interest
+to users.</p>
+<p>New submissions are welcome, if you had a question and found the answer elsewhere,
+submit a pull request or an issue describing the question and the answer.
+These questions will appear in searches in the book and in the trin repository.</p>
+<h2 id="can-i-rely-on-trin-to-interact-with-ethereum"><a class="header" href="#can-i-rely-on-trin-to-interact-with-ethereum">Can I rely on Trin to interact with Ethereum?</a></h2>
+<p>Not at present. Trin and the Portal Network more broadly are under active
+development.</p>
+<h2 id="can-trin-be-used-with-a-vpn"><a class="header" href="#can-trin-be-used-with-a-vpn">Can Trin be used with a VPN?</a></h2>
+<p>Trin should be compatible with VPN use, but if you experience difficulty connecting to the
+network we recommend disabling your VPN.</p>
+<h2 id="can-trin-be-used-over-tor"><a class="header" href="#can-trin-be-used-over-tor">Can Trin be used over TOR?</a></h2>
+<p>No, the Trin uses uTP, which is not supported in the TOR protocol.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="developers"><a class="header" href="#developers">Developers</a></h1>
+<p>This part of the book is for understanding Trin, and processes around
+building Trin better.</p>
+<p>Where the Trin crates and the Portal Network specification are the source of
+truth, this section seeks to offer a quicker &quot;key concepts&quot; for getting started.</p>
+<p>It seeks to answer questions like:</p>
+<ul>
+<li>What do I need to know about the Portal Network?</li>
+<li>How do the different components of Trin work together?</li>
+<li>What sort of data guarantees are made and how are they achieved?</li>
+<li>What things should a new contributor be mindful of?</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="quick-setup"><a class="header" href="#quick-setup">Quick setup</a></h1>
+<p>This is a single page the aims to cover everything required to get Trin running.</p>
+<p><strong>Trin is currently in unstable alpha, and should not be used in production. If you run into any bugs while using Trin, please file an Issue!</strong></p>
+<p><strong>Check out the <code>./newsfragments</code> directory to see the latest changes.</strong></p>
+<h2 id="prerequisites"><a class="header" href="#prerequisites">Prerequisites</a></h2>
+<ul>
+<li>Execution node, either:
+<ul>
+<li>Local node</li>
+<li><a href="https://infura.io/">Infura</a> project ID</li>
+</ul>
+</li>
+<li><a href="https://www.rust-lang.org/">Rust</a> installation</li>
+</ul>
+<h2 id="building-testing-and-running"><a class="header" href="#building-testing-and-running">Building, Testing, and Running</a></h2>
+<p>Note: If you use a VPN, you should disable it before running Trin.</p>
+<p>Install dependencies (Ubuntu/Debian):</p>
+<pre><code class="language-sh">apt install libssl-dev librocksdb-dev libclang-dev pkg-config build-essential
+</code></pre>
+<p>Environment variables:</p>
+<pre><code class="language-sh"># Required if not using a local node (&quot;--trusted-provider custom&quot; flag).
+export TRIN_INFURA_PROJECT_ID=&lt;infura-project-id&gt;
+
+# Optional
+export RUST_LOG=&lt;error/warn/info/debug/trace&gt;
+export TRIN_DATA_PATH=&lt;path-to-data-directory&gt;
+</code></pre>
+<p>Build, test, and run:</p>
+<pre><code class="language-sh">git clone https://github.com/ethereum/trin.git
+cd trin
+
+# Build
+cargo build --workspace
+
+# Run test suite
+cargo test --workspace
+
+# Build and run test suite for an individual crate
+cargo build -p trin-core
+cargo test -p trin-core
+
+# Run
+cargo run
+</code></pre>
+<p>Note: You may also pass environment variable values in the same command as the run command. This is especially useful for setting log levels.</p>
+<pre><code class="language-sh">RUST_LOG=debug cargo run
+</code></pre>
+<p>View CLI options:</p>
+<pre><code class="language-sh">cargo run -- --help
+</code></pre>
+<h3 id="run-locally"><a class="header" href="#run-locally">Run locally</a></h3>
+<p>Run with the <code>--trusted-provider</code> as a local execution node (normally runs on <code>127.0.0.1:8545</code>), which can be configured with the <code>--trusted-provider-url</code> flag.</p>
+<p>Serve portal node web3 access over a different port (such as <code>8547</code>) using the <code>--web3-http-address</code> flag. The <code>--web3-transport</code> for a local node will be over <code>http</code>
+(rather than <code>ipc</code>).</p>
+<pre><code class="language-sh">RUST_LOG=debug cargo run -- \
+    --trusted-provider custom \
+    --trusted-provider-url http://127.0.0.1:8545 \
+    --web3-http-address http://127.0.0.1:8547 \
+    --web3-transport http \
+    --discovery-port 9009 \
+    --bootnodes default \
+    --kb 200000 \
+    --no-stun
+</code></pre>
+<h3 id="connect-to-the-portal-network-testnet"><a class="header" href="#connect-to-the-portal-network-testnet">Connect to the Portal Network testnet</a></h3>
+<p>To immediately connect to the testnet, you can use the <code>--bootnodes default</code> argument to automatically connect with the default Trin bootnodes.</p>
+<pre><code class="language-sh">cargo run -- --bootnodes default
+</code></pre>
+<p>To establish a connection with a specific peer, pass in one or more bootnode ENRs. Pass the ENR as the value for the <code>--bootnodes</code> CLI flag.</p>
+<pre><code class="language-sh">cargo run -- --bootnodes &lt;bootnode-enr&gt;
+</code></pre>
+<h2 id="default-data-directories"><a class="header" href="#default-data-directories">Default data directories</a></h2>
+<ul>
+<li>Linux/Unix: <code>$HOME/.local/share/trin</code></li>
+<li>MacOS: <code>~/Library/Application Support/trin</code></li>
+<li>Windows: <code>C:\Users\Username\AppData\Roaming\trin</code></li>
+</ul>
+<h2 id="using-trin"><a class="header" href="#using-trin">Using Trin</a></h2>
+<p>In some of the following sections, we make use of the <a href="https://github.com/ethereum/web3.py/">web3.py</a> library.</p>
+<h3 id="connect-over-ipc"><a class="header" href="#connect-over-ipc">Connect over IPC</a></h3>
+<p>In a python shell:</p>
+<pre><code class="language-py">&gt;&gt;&gt; from web3 import Web3
+&gt;&gt;&gt; w3 = Web3(Web3.IPCProvider(&quot;/tmp/trin-jsonrpc.ipc&quot;))
+&gt;&gt;&gt; w3.clientVersion
+'trin 0.0.1-alpha'
+&gt;&gt;&gt; w3.eth.blockNumber
+11870768
+</code></pre>
+<p>To request a custom jsonrpc endpoint, provide the endpoint and array of params. eg:</p>
+<pre><code class="language-py">&gt;&gt;&gt; w3.provider.make_request(&quot;portal_historyPing&quot;, [&quot;enr:-IS4QBz_40AQVBaqlhPIWFwVEphZqPKS3EPso1PwK01nwDMtMCcgK73FppW1C9V_BQRsvWV5QTbT1IYUR-zv8_cnIakDgmlkgnY0gmlwhKRc9_OJc2VjcDI1NmsxoQM-ccaM0TOFvYqC_RY_KhZNhEmWx8zdf6AQALhKyMVyboN1ZHCCE4w&quot;, &quot;18446744073709551615&quot;])
+{'jsonrpc': '2.0',
+ 'id': 0,
+ 'result': {'enrSeq': '3',
+  'dataRadius': '115792089237316195423570985008687907853269984665640564039457584007913129639935'}}
+</code></pre>
+<p>See the <a href="developers//docs/jsonrpc_api.html">JSON-RPC API docs</a> for other standard methods that are implemented. You can use the <a href="https://web3py.readthedocs.io/en/stable/web3.eth.html#module-web3.eth">web3.py</a> API to access these.</p>
+<h3 id="connect-over-http"><a class="header" href="#connect-over-http">Connect over HTTP</a></h3>
+<p>First launch trin using HTTP as the json-rpc transport protocol:</p>
+<pre><code class="language-sh">cargo run -- --web3-transport http
+</code></pre>
+<p>Then, in a python shell:</p>
+<pre><code class="language-py">&gt;&gt;&gt; from web3 import Web3
+&gt;&gt;&gt; w3 = Web3(Web3.HTTPProvider(&quot;http://127.0.0.1:8545&quot;))
+&gt;&gt;&gt; w3.clientVersion
+'trin 0.0.1-alpha'
+&gt;&gt;&gt; w3.eth.blockNumber
+11870768
+</code></pre>
+<p>The client version responds immediately, from the trin client. The block number is retrieved more slowly, by proxying to Infura.</p>
+<p>To interact with trin at the lowest possible level, try netcat:</p>
+<pre><code class="language-sh">nc -U /tmp/trin-jsonrpc.ipc
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:83}
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:83,&quot;result&quot;:&quot;0xb52258&quot;}{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;method&quot;:&quot;eth_blockNumber&quot;,&quot;params&quot;:[],&quot;id&quot;:84}
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:84,&quot;result&quot;:&quot;0xb52259&quot;}{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:85,&quot;params&quot;:[],&quot;method&quot;:&quot;web3_clientVersion&quot;}
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:&quot;85&quot;,&quot;result&quot;:&quot;trin 0.0.1-alpha&quot;}
+{&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;id&quot;:86,&quot;params&quot;:[],&quot;method&quot;:&quot;discv5_nodeInfo&quot;}
+{&quot;id&quot;:86,&quot;jsonrpc&quot;:&quot;2.0&quot;,&quot;result&quot;:&quot;enr:-IS4QHK_CnCsQKT-mFTilJ5msHacIJtU91aYe8FhAd_K7G-ACO-FO2GPFOyM7kiphjXMwrNh8Y4mSbN3ufSdBQFzjikBgmlkgnY0gmlwhMCoAMKJc2VjcDI1NmsxoQNa58x56RRRcUeOegry5S4yQvLa6LKlDcbBPHL4H5Oy4oN1ZHCCIyg&quot;}
+</code></pre>
+<p>For something in between, you may use <code>curl</code> to send requests to the HTTP JSON-RPC endpoint.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="developer-stories"><a class="header" href="#developer-stories">Developer stories</a></h1>
+<p>Trin is under active development. Perhaps you would like to get involved?</p>
+<p>The following are some situations that might resonate.</p>
+<h2 id="issue-resolver"><a class="header" href="#issue-resolver">Issue resolver</a></h2>
+<p>Someone who tried out Trin and found an issue, then worked out
+where it was coming from.</p>
+<p>Consider making a pull request to fix the issue.</p>
+<h2 id="ecosystem-contributor"><a class="header" href="#ecosystem-contributor">Ecosystem contributor</a></h2>
+<p>Trin, and the Portal Network more broadly are perhaps more
+quiet than other areas of Ethereum development. Maybe you can see
+yourself helping out somewhere where you can have a meaningful impact.</p>
+<h2 id="researcher"><a class="header" href="#researcher">Researcher</a></h2>
+<p>Someone looking into the Ethereum protocol upgrade path, and thinking through
+the impact of potential upcoming changes.</p>
+<p>There are interesting facets to the Portal network still to be determined.</p>
+<p>Perhaps you can be tempted by:</p>
+<ul>
+<li>Double batched merkle log accumulators</li>
+<li>Topology of content in distributed hash tables</li>
+<li>Adversarial scenario planning and mitigation</li>
+</ul>
+<h2 id="hobbyist"><a class="header" href="#hobbyist">Hobbyist</a></h2>
+<p>Someone looking to poke around and run a node on a single board computer or
+a mobile device. How small is too small?</p>
+<h2 id="rust-developer"><a class="header" href="#rust-developer">Rust developer</a></h2>
+<p>Someone looking to build something meaningful in Rust, with interesting
+architecture and crates:</p>
+<ul>
+<li>Cryptography</li>
+<li>Peer to peer networking</li>
+<li>Async runtimes</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="goals"><a class="header" href="#goals">Goals</a></h1>
+<h2 id="demonstrate-feasibility"><a class="header" href="#demonstrate-feasibility">Demonstrate feasibility</a></h2>
+<p>Implement the Portal Network and demonstrate its use. Starting
+with subset of the whole and then expanding from there.</p>
+<h2 id="prioritise-sub-protocols"><a class="header" href="#prioritise-sub-protocols">Prioritise Sub-protocols</a></h2>
+<h3 id="primary"><a class="header" href="#primary">Primary</a></h3>
+<p>Get the History sub-protocol working.</p>
+<ul>
+<li>Iron out bugs</li>
+<li>Interop with other clients</li>
+<li>Monitor network to see if it retains data</li>
+</ul>
+<h3 id="secondary"><a class="header" href="#secondary">Secondary</a></h3>
+<p>Start work on the State sub-protocol.</p>
+<ul>
+<li>Implementation from the Portal Network specification.</li>
+</ul>
+<h3 id="tertiary"><a class="header" href="#tertiary">Tertiary</a></h3>
+<p>Start work on remaining sub-protocols</p>
+<ul>
+<li>Canonical indices</li>
+<li>Transaction gossip</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="progress-status"><a class="header" href="#progress-status">Progress status</a></h1>
+<p>The Portal Network and Trin are under active development so different components
+may be in varying stages of progress.</p>
+<ul>
+<li>Completed, looking for bugs</li>
+<li>Mid-construction</li>
+<li>Future, planned features</li>
+</ul>
+<p>Some methods to get a sense of the state of development are:</p>
+<ul>
+<li>Run <code>trin -- --help</code> and see what flags are available.</li>
+<li>Look at recent closed PRs to see what has just been merged.</li>
+<li>Look at recent issues that have been opened to see what active foci are.</li>
+<li>Look at what examples are shown in the setup and usage guides.</li>
+<li>Run trin in the way you think it might work and see what happens.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="architecture"><a class="header" href="#architecture">Architecture</a></h1>
+<p>Trin can be understood a from different perspectives.</p>
+<ul>
+<li>How is code organised?</li>
+<li>How does data flow through trin?</li>
+<li>How is data stored?</li>
+<li>How does testing work?</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="workspaces"><a class="header" href="#workspaces">Workspaces</a></h1>
+<p>Trin is a package that can be run:</p>
+<pre><code class="language-sh">cargo run -p trin
+</code></pre>
+<p>The trin repository is composed of workspaces that are used by the main Trin package.
+Their relationship is outlined below.</p>
+<h2 id="trin"><a class="header" href="#trin"><code>trin</code></a></h2>
+<p>Code for the <code>trin</code> package is located in <code>./src</code>.</p>
+<p>This crate is responsible for the operation of the Trin node functionality.</p>
+<ul>
+<li>Startup with different configurations via command line arguments</li>
+<li>Starting threads for different important functions such as uTP, Discovery &amp; JSON-RPC.</li>
+<li>These threads perform tasks such as listening for peers or requests from a user.</li>
+</ul>
+<h2 id="trin-core"><a class="header" href="#trin-core"><code>trin-core</code></a></h2>
+<p>This crate is responsible for the code that defines the main functions and data structures required for the operation of a Trin node. This includes code for:</p>
+<ul>
+<li>Interacting with and managing peers</li>
+<li>Determining content to store and share</li>
+<li>Database management</li>
+<li>Ethereum related data structures</li>
+</ul>
+<h2 id="trin-history"><a class="header" href="#trin-history"><code>trin-history</code></a></h2>
+<p>This crate is responsible for the History sub-protocol. This means interacting with peers
+to retrieve and distribute the following:</p>
+<ul>
+<li>Block headers</li>
+<li>Block bodies</li>
+<li>Block receipts</li>
+</ul>
+<p>Additionally, it is also responsible for the header accumulator, a structure which provides a
+mechanism to determine whether a given block hash is part of the canonical set of block hashes.</p>
+<p>The crate uses the <code>ethportal-api</code> crate to represent the main data type in this crate: the
+<code>HistoryContentKey</code>. This struct implements the OverlayContentKey trait, which allows it to
+be treated as a member of the broader family of <code>OverlayContentKey</code>s.</p>
+<h2 id="trin-state"><a class="header" href="#trin-state"><code>trin-state</code></a></h2>
+<blockquote>
+<p>This crate exists mostly as a stub for future work.</p>
+</blockquote>
+<p>This crate is equivalent in function to the <code>trin-history</code> crate, but instead is responsible
+for the State sub-protocol.</p>
+<p>This means that it is responsible for:</p>
+<ul>
+<li>The state of all accounts.</li>
+<li>The state of all contracts.</li>
+<li>The bytecode of all contracts.</li>
+</ul>
+<p>Data in the state network is represented as a tries (tree structures). The network uses proofs
+against these tries to allow Trin nodes to verify the correctness of data.</p>
+<h2 id="ethportal-api"><a class="header" href="#ethportal-api"><code>ethportal-api</code></a></h2>
+<p>This crate seeks to expose the data structures in the Portal Network specification.
+This includes features such as derived SSZ encoding and convenience functions.</p>
+<p>The crate defines traits that may be used across different sub-protocols. For
+example, the <code>OverlayContentKey</code> may be implemented for content on both the History and State
+sub-protocols. Thus a function can accept content from both networks via <code>T: OverlayContentKey</code>.</p>
+<pre><code class="language-rs no_run">fn handles_content_keys&lt;T: OverlayContentKey&gt;(key: T) {
+    // Snip
+}
+</code></pre>
+<p>The crate will evolve to provide the types required for the other sub-protocols.</p>
+<h2 id="rpc"><a class="header" href="#rpc"><code>rpc</code></a></h2>
+<p>This crate contains implementations of <code>ethportal-api</code> jsonrpsee server API traits in Trin and interface for running the JSON-RPC server.</p>
+<h2 id="utp-testing"><a class="header" href="#utp-testing"><code>utp-testing</code></a></h2>
+<p>Trin uses Micro Transport Protocol (uTP) a UDP based protocol similar to the BitTorrent protocol.
+This crate can be used to set up clients and servers to test the protocol on a single machine.</p>
+<h2 id="ethportal-peertest-for-deprecation"><a class="header" href="#ethportal-peertest-for-deprecation"><code>ethportal-peertest</code> (for deprecation)</a></h2>
+<p>This crate is marked for deprecation and was previously used for automated peer testing in CI.
+Now that a multi-client network exists, peer testing happens there.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="process-flow"><a class="header" href="#process-flow">Process flow</a></h1>
+<p>The following main threads are spawned when Trin is started via <code>./src/main.rs</code>.</p>
+<pre class="mermaid">stateDiagram-v2
+    trin: trin
+
+    state trin {
+        utplistner: UTP listner
+        subprotocolhandler: sub-protocol handler
+        subprotocolnetworktask: sub-protocol network task
+        portaleventshandler: portal events handler
+        jsonrpcserver: JSON-RPC server
+
+        main() --&gt; utplistner
+        main() --&gt; subprotocolhandler
+        main() --&gt; subprotocolnetworktask
+        main() --&gt; portaleventshandler
+        main() --&gt; jsonrpcserver
+
+    }
+
+</pre>
+<p>Where for each sub-protocol implemented (History, State, Etc.,), a new thread is started.</p>
+<p>Here are some of the major components of trin-core that are called on startup within <code>./trin-core/src/lib.rs</code>.</p>
+<pre class="mermaid">stateDiagram-v2
+    trincore: trin-core
+    collection: configs and services
+
+    state trin {
+        main() --&gt; from_cli()
+        from_cli() --&gt; run_trin()
+        run_trin() --&gt; discovery()
+        run_trin() --&gt; utp_listener()
+        run_trin() --&gt; header_oracle()
+        run_trin() --&gt; portalnet_config
+        run_trin() --&gt; storage_config
+
+    }
+
+    state trincore {
+        portalnet_config --&gt; collection
+        storage_config --&gt; collection
+        discovery() --&gt; collection
+        header_oracle() --&gt; collection
+        utp_listener() --&gt; collection
+
+
+        state portalnet {
+            portalnet_config
+            storage_config
+            discovery()
+        }
+        state utp {
+            utp_listener()
+        }
+        state validation {
+            header_oracle()
+        }
+    }
+</pre>
+<p>Once the initial collection of important configs and services have
+been aggregated, they are passed to the crates for each sub-protocol (<code>trin-history</code> shown here). The received data structures are then
+used to start the JSON-RPC server.</p>
+<p>An events listener awaits network activity that can be actioned.</p>
+<pre class="mermaid">stateDiagram-v2
+    trincore: trin-core
+    trinhistory: trin-history
+    jsonrpchistory: JSON-RPC History details
+    historyhandler: History handler
+    collection: configs and services
+
+    state trin {
+        collection --&gt; initialize_history_network()
+        collection --&gt; HistoryRequestHandler
+        initialize_history_network() --&gt; jsonrpchistory
+        jsonrpchistory --&gt; launch_jsonrpc_server()
+        HistoryRequestHandler --&gt; historyhandler
+        collection --&gt; events()
+        historyhandler --&gt; events()
+    }
+
+    state trincore {
+        state portalnet {
+            events()
+        }
+
+    }
+    state trinhistory {
+        initialize_history_network()
+        state jsonrpc {
+            HistoryRequestHandler
+        }
+    }
+    state rpc {
+        launch_jsonrpc_server()
+    }
+</pre>
+<p>Then <code>./trin-core/portalnet/events.rs</code> is handles events at the level of the Portal Wire Protocol.
+These are defined messages that are compliant with the Discv5 protocol, and specific
+to the Portal Network.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="database"><a class="header" href="#database">Database</a></h1>
+<p>The database related code is located in <code>./trin-core/src/portalnet/storage.rs</code>.</p>
+<p>There are three main database kinds:</p>
+<div class="table-wrapper"><table><thead><tr><th>DB Name</th><th>Kind</th><th>Location</th><th>Purpose</th><th>Keys</th><th>Values</th></tr></thead><tbody>
+<tr><td>Main</td><td>RocksDB</td><td>Disk</td><td>Data store</td><td>Content ID</td><td>Content data bytes</td></tr>
+<tr><td>Memory</td><td>HashMap</td><td>Memory</td><td>Kademlia cache</td><td>Content key</td><td>Content data bytes</td></tr>
+<tr><td>Meta</td><td>SQLite</td><td>Disk</td><td>Manage DB size</td><td>Content ID</td><td>Content key, content size</td></tr>
+</tbody></table>
+</div>
+<h2 id="main-content-database"><a class="header" href="#main-content-database">Main content database</a></h2>
+<p>This is a persistent file-based database that uses RocksDB.
+It is also called the &quot;radius&quot; database because content management rules are based on
+the radius of content (specifically the content distance to the node ID).</p>
+<h2 id="memory-content-database"><a class="header" href="#memory-content-database">Memory content database</a></h2>
+<p>This uses is an in-memory hashmap to keep content that may not be required for long term
+storage. An overlay service uses this database when receiving data from a peer as
+part of Kademlia-related actions. If required, data is later moved to disk in the
+main content database.</p>
+<h2 id="meta-database"><a class="header" href="#meta-database">Meta database</a></h2>
+<p>This is an SQLite database that stores metadata. For a piece of content, this includes
+the content ID, content key and the size of the content. It makes assess the size of
+the main database quicker by avoiding the need to repeatedly compute the size of each content.</p>
+<p>Database updates occur in tandum with the main database, where if an operation in one database
+fails, the other can revert the operation to remain synced.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="testing"><a class="header" href="#testing">Testing</a></h1>
+<p>Testing occurs at different levels of abstraction.</p>
+<h2 id="unit-testing"><a class="header" href="#unit-testing">Unit testing</a></h2>
+<p>Unit tests are for checking individual data structures and methods.
+These tests are included within each workspace, at the bottom the file that contains the
+code being tested. Tests are run by CI tasks on pull requests to the Trin repository.</p>
+<h2 id="integration-testing"><a class="header" href="#integration-testing">Integration testing</a></h2>
+<p>Tests that involve testing different parts of a crate at the same time are included in a <code>/tests</code>
+directory within the relevant module or crate. They are also run by CI tasks on pull
+requests to the Trin repository.</p>
+<h2 id="network-simulation"><a class="header" href="#network-simulation">Network simulation</a></h2>
+<p>The <code>test-utp</code> crate is part of continuous integration (CI). This sets up
+client and server insfrastructure on a single machine to test data streaming with
+simulated packet loss.</p>
+<h2 id="hive"><a class="header" href="#hive">Hive</a></h2>
+<p>Hive testing runs Trin as a node and challenges it in a peer to peer envorinment. This
+involves creating a docker image with the Trin binary and passing it to Hive.</p>
+<p>Hive itself is a fork of Ethereum hive testing and exists as <code>portal-hive</code>, an
+external repository (<a href="https://github.com/ogenev/portal-hive">here</a>). It can be started with docker images of other clients for cross-client testing.
+The nodes are started, fed a small amount of data and then challenged with RPC requests
+related to that data.</p>
+<p>Testing is automated, using docker configurations in the Trin repository to build test Trin
+and other clients at a regular cadence. Results of the latest test are displayed
+at <a href="https://portal-hive.ethdevops.io/">https://portal-hive.ethdevops.io/</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="protocols"><a class="header" href="#protocols">Protocols</a></h1>
+<p>This section contains summaries of important protocols for the Portal
+Network. The purpose is to distill important concepts to quickly
+see how Trin works.</p>
+<p>See the relevant specifications for deeper explanations.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="portal-wire-protocol"><a class="header" href="#portal-wire-protocol">Portal wire protocol</a></h1>
+<p>The Portal Wire protocol (<a href="https://github.com/ethereum/portal-network-specs/blob/master/portal-wire-protocol.md">spec</a>) is a variant of the discovery (Discv5) wire protocol (<a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5-wire.md">spec</a>).</p>
+<p>This means that the basic protocol is the same, but there are custom portal-specific messages.</p>
+<h2 id="protocol-id"><a class="header" href="#protocol-id">Protocol ID</a></h2>
+<p>Nodes identify each other by a protocol ID.</p>
+<ul>
+<li><code>0x50..</code> Portal Network
+<ul>
+<li><code>0x500A</code> portal state sub-protocol.</li>
+<li><code>0x500B</code> portal history sub-protocol.</li>
+<li>Etc.</li>
+</ul>
+</li>
+<li><code>0x....</code> Other networks (Ethereum execution, Ethreum consensus chain, others.)</li>
+</ul>
+<h2 id="messages"><a class="header" href="#messages">Messages</a></h2>
+<p>Messages the define the portal sub-protocols are:</p>
+<ul>
+<li><code>TALKREQ</code> (talk requests). These have a request ID.</li>
+<li><code>TALKRESP</code> (talk responses). These refer to the reqest ID being responded to.</li>
+</ul>
+<p>Messages contain data that is an SSZ union. This means that the message contains
+one of the possible message content types, and that the type will be specified.</p>
+<pre><code class="language-py"># Python
+message = Union[ping, pong, find_nodes, nodes, find_content, content, offer, accept]
+</code></pre>
+<h2 id="message-encoding"><a class="header" href="#message-encoding">Message encoding</a></h2>
+<p>The SSZ Union encoding means that each component has a selector (<code>PING 0x00, PONG 0x01, FIND_NODES 0x02, ...</code>).
+That way, different clients on the network can listen to messages on the right protocol
+and correctly decode them.</p>
+<p>For example, receiving a message and seeing that the first byte is <code>0x02</code> indicates that the
+message contains a <code>FIND_NODES</code> type of content.</p>
+<h2 id="message-data"><a class="header" href="#message-data">Message data</a></h2>
+<p>Each message has specific data that is sent. For example, a <code>find_content</code> message component will have the content that is being sought. The details of these can be found in the spec.</p>
+<h2 id="additional-api-exposure"><a class="header" href="#additional-api-exposure">Additional API exposure</a></h2>
+<p>The above message definitions are sufficient for a Trin node to participate in the network.</p>
+<p>However, as Trin is a JSON-RPC server (serving Ethereum-related requests like <code>eth_getBlockNumber</code>)
+it also exposes the wire methods. This is not strictly required by the Portal Network specification,
+but is very useful.</p>
+<p>Messages that are wire responses are not exposed, as they are not requests.</p>
+<h2 id="relationship-to-json-rpc"><a class="header" href="#relationship-to-json-rpc">Relationship to JSON-RPC</a></h2>
+<p>The following table shows the wire definition, purpose and how it is exposed for querying via
+the JSON-RPC server.</p>
+<p>Recall that each Trin can serve multiple sub-protocols simultaneously. Hence, the
+following table is for the History sub-protocol (<code>0x500A</code> in Discovery-terms), and
+JSON-RPC methods start with <code>portal_history*</code>.</p>
+<div class="table-wrapper"><table><thead><tr><th>message</th><th>SSZ union message selector</th><th>purpose</th><th>JSON-RPC</th></tr></thead><tbody>
+<tr><td>ping</td><td><code>0x01</code></td><td>&quot;Are you alive?&quot;</td><td><code>portal_historyPing</code></td></tr>
+<tr><td>pong</td><td><code>0x02</code></td><td>&quot;I'm alive&quot;</td><td>None</td></tr>
+<tr><td>find_nodes</td><td><code>0x03</code></td><td>&quot;Give me peers at specific distances x, y &amp; z&quot;</td><td><code>portal_historyFindNodes</code></td></tr>
+<tr><td>nodes</td><td><code>0x04</code></td><td>&quot;Response to findnodes&quot;</td><td>None</td></tr>
+<tr><td>find_content</td><td><code>0x05</code></td><td>&quot;I want content x, or peers who might have it&quot;</td><td><code>portal_historyFindContent</code></td></tr>
+<tr><td>content</td><td><code>0x06</code></td><td>&quot;Here is content x, or peers who might have it.&quot;</td><td>None</td></tr>
+<tr><td>offer</td><td><code>0x07</code></td><td>&quot;I have content x, y &amp; z, would you like any of them?&quot;</td><td><code>portal_historyOffer</code></td></tr>
+<tr><td>accept</td><td><code>0x08</code></td><td>&quot;Yes please, I would like x, y &amp; z&quot;</td><td>None</td></tr>
+</tbody></table>
+</div><div style="break-before: page; page-break-before: always;"></div><h1 id="discovery"><a class="header" href="#discovery">Discovery</a></h1>
+<h2 id="node-discovery-protocol-v5-discv5"><a class="header" href="#node-discovery-protocol-v5-discv5">Node Discovery Protocol v5 (Discv5)</a></h2>
+<p>A protocol (<a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5.md">spec</a>) for nodes to identify each other. There are three main capabilities:</p>
+<ul>
+<li>Sample (walk the network to find nodes)</li>
+<li>Search (locate nodes interested in a specific topic)</li>
+<li>Update (navigate when a peer updates their details, such as IP address)</li>
+</ul>
+<p>Discovery is a high level protocol that is further defined with the Discovery wire protocol.</p>
+<h2 id="discovery-discv5-wire-protocol"><a class="header" href="#discovery-discv5-wire-protocol">Discovery (Discv5) wire protocol</a></h2>
+<p>An application-level protocol (<a href="https://github.com/ethereum/devp2p/blob/master/discv5/discv5-wire.md">spec</a>) for nodes using Discv5. It describes the structure and logic of different
+messages sent between nodes.</p>
+<p>Some important properties of the protocol are:</p>
+<ul>
+<li>UDP based scheme (tolerant to packet loss compared with TCP)
+<ul>
+<li>The Portal Network uses a variant of UDP called uTP that is more friendly for larger
+packets.</li>
+</ul>
+</li>
+<li>Message encryption (ENRs are used to encrypt data with the recipients public key)</li>
+<li>Protocol differentiation (allow nodes to avoid unrelated networks)</li>
+<li>Message types (for finding peers, establishing connections, requesting specific things)</li>
+<li>Flexible request/types types (for sub-protocols to use custom messages)</li>
+</ul>
+<h2 id="ethereum-node-records-enr"><a class="header" href="#ethereum-node-records-enr">Ethereum Node Records (ENR)</a></h2>
+<p>A data format (<a href="https://github.com/ethereum/devp2p/blob/master/enr.md">spec</a>) that allows nodes to know the identity and important information about
+peers. This includes data like IP address and ports.</p>
+<p>Nodes generate a private key for the purpose of node discovery. This is used to sign
+the ENR to prevent impersonation. Peers can encrypt messages for each other using the ENR.</p>
+<p>The private key is unrelated to private keys used to sign Ethereum transactions.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="utp"><a class="header" href="#utp">uTP</a></h1>
+<p>The Dicv5 protocol normally uses UDP packets, however this has some limitations
+in packet size. The Portal Network uses Micro Transport Protocol (uTP)
+(<a href="https://github.com/ethereum/portal-network-specs/blob/master/discv5-utp.md">spec</a>)
+to avoid this problem.</p>
+<p>uTP is similar to the BitTorrent protocol and provides a way to send ordered packets.</p>
+<p>Once two peers have agreed to send data via messages in the Portal Wire protocol (E.g., via
+an <code>OFFER</code> and <code>ACCEPT</code>) sequence, the peers can then open communication on the uTP
+sub-protocol. Inside this protocol they can send the data to each other, following the
+uTP protocol until the data transfer is complete.</p>
+<p>First, a sub-protocol is used:</p>
+<ul>
+<li>History sub-protocol (arrange data transfer, but don't start sending)</li>
+<li>State sub-protocol (arrange data transfer, but don't start sending)</li>
+<li>...</li>
+</ul>
+<p>Second, once data transfer is arranged, peers switch to the uTP protocol to start the
+data transfer. uTP uses the relevant sub-protocol (E.g., History Discv5 overlay,
+State Discv5 overlay) as transport. </p>
+<p>By providing an ID for the content that they are transferring, the two peers
+can easily switch from one protocol to the uTP protocol and complete the specified transfer.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="json-rpc"><a class="header" href="#json-rpc">JSON-RPC</a></h1>
+<p>This is a document for all JSON-RPC API endpoints currently supported by Trin. Trin plans to eventually support the entire <a href="https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/ethereum/portal-network-specs/assembled-spec/jsonrpc/openrpc.json&amp;uiSchema%5BappBar%5D%5Bui:splitView%5D=false&amp;uiSchema%5BappBar%5D%5Bui:input%5D=false&amp;uiSchema%5BappBar%5D%5Bui:examplesDropdown%5D=false">Portal Network JSON-RPC API</a> and <a href="https://eth.wiki/json-rpc/API#json-rpc-methods">Ethereum JSON-RPC API</a>.</p>
+<h2 id="currently-supported-endpoints"><a class="header" href="#currently-supported-endpoints">Currently supported endpoints</a></h2>
+<h3 id="portal-network-1"><a class="header" href="#portal-network-1">Portal Network</a></h3>
+<p>The specification for these endpoints can be found <a href="https://playground.open-rpc.org/?schemaUrl=https://raw.githubusercontent.com/ethereum/portal-network-specs/assembled-spec/jsonrpc/openrpc.json&amp;uiSchema%5BappBar%5D%5Bui:splitView%5D=false&amp;uiSchema%5BappBar%5D%5Bui:input%5D=false&amp;uiSchema%5BappBar%5D%5Bui:examplesDropdown%5D=false">here</a>.</p>
+<ul>
+<li><code>discv5_nodeInfo</code></li>
+<li><code>discv5_routingTableInfo</code></li>
+<li><code>portal_historyFindContent</code></li>
+<li><code>portal_historyFindNodes</code></li>
+<li><code>portal_historyGossip</code></li>
+<li><code>portal_historyLocalContent</code></li>
+<li><code>portal_historyPing</code></li>
+<li><code>portal_historyOffer</code></li>
+<li><code>portal_historyRecursiveFindContent</code></li>
+<li><code>portal_historyStore</code></li>
+<li><code>portal_stateFindContent</code></li>
+<li><code>portal_stateFindNodes</code></li>
+<li><code>portal_stateLocalContent</code></li>
+<li><code>portal_stateGossip</code></li>
+<li><code>portal_stateOffer</code></li>
+<li><code>portal_stateStore</code></li>
+<li><code>portal_statePing</code></li>
+</ul>
+<h3 id="ethereum-endpoints"><a class="header" href="#ethereum-endpoints">Ethereum endpoints</a></h3>
+<p>The specification for these endpoints can be found <a href="https://eth.wiki/json-rpc/API#json-rpc-methods">here</a>.</p>
+<ul>
+<li><a href="https://eth.wiki/json-rpc/API#eth_blocknumber"><code>eth_blockNumber</code></a>
+<ul>
+<li>This endpoint is currently proxied to a trusted provider (local node or Infura), and not served by the Portal Network.</li>
+</ul>
+</li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_getblockbyhash"><code>eth_getBlockByHash</code></a>
+<ul>
+<li>This endpoint relies on fetching block headers from the Portal Network, so all blocks may not be available until the Portal Network stabilizes.</li>
+</ul>
+</li>
+<li><a href="https://eth.wiki/json-rpc/API#eth_getblockbynumber"><code>eth_getBlockByNumber</code></a>
+<ul>
+<li>This endpoint relies on the master accumulator to lookup the block hash. Since the master accumulator was frozen at the merge block, only pre-merge blocks are currently supported.</li>
+</ul>
+</li>
+<li><a href="https://eth.wiki/json-rpc/API#web3_clientversion"><code>web3_clientVersion</code></a></li>
+</ul>
+<h3 id="custom-trin-json-rpc-endpoints"><a class="header" href="#custom-trin-json-rpc-endpoints">Custom Trin JSON-RPC endpoints</a></h3>
+<p>The following endpoints are not part of the Portal Network specification and are defined
+in subsequent sections:</p>
+<ul>
+<li><a href="developers/protocols/json_rpc.html#portal_historyradius"><code>portal_historyRadius</code></a></li>
+<li><a href="developers/protocols/json_rpc.html#portal_historytracerecursivefindcontent"><code>portal_historyTraceRecursiveFindContent</code></a></li>
+<li><a href="developers/protocols/json_rpc.html#portal_paginatelocalcontentkeys"><code>portal_paginateLocalContentKeys</code></a></li>
+<li><a href="developers/protocols/json_rpc.html#portal_stateradius"><code>portal_stateRadius</code></a></li>
+</ul>
+<h1 id="history-overlay-network"><a class="header" href="#history-overlay-network">History Overlay Network</a></h1>
+<h2 id="portal_historyradius"><a class="header" href="#portal_historyradius"><code>portal_historyRadius</code></a></h2>
+<p>Returns the current data storage radius being used for the History network.</p>
+<h3 id="parameters"><a class="header" href="#parameters">Parameters</a></h3>
+<p><code>None</code></p>
+<h3 id="returns"><a class="header" href="#returns">Returns</a></h3>
+<ul>
+<li>Data storage radius.</li>
+</ul>
+<h4 id="example"><a class="header" href="#example">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: &quot;18446744073709551615&quot;
+}
+</code></pre>
+<h2 id="portal_historytracerecursivefindcontent"><a class="header" href="#portal_historytracerecursivefindcontent"><code>portal_historyTraceRecursiveFindContent</code></a></h2>
+<p>Same as <code>portal_historyRecursiveFindContent</code>, but will also return a &quot;route&quot; with the content. The &quot;route&quot; contains all of the ENR's contacted during the lookup, and their respective distance to the target content. If the content is available in local storage, the route will contain an empty array.</p>
+<h3 id="parameters-1"><a class="header" href="#parameters-1">Parameters</a></h3>
+<ul>
+<li><code>content_key</code>: Target content key.</li>
+</ul>
+<h3 id="returns-1"><a class="header" href="#returns-1">Returns</a></h3>
+<ul>
+<li>Target content value, or <code>0x</code> if the content was not found.</li>
+<li>Network ENRs traversed to find the target content along with their base-2 log distance from the content. If the target content was found in local storage, this will be an empty array.</li>
+</ul>
+<h4 id="example-1"><a class="header" href="#example-1">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: {
+	  &quot;content&quot;: &quot;0xf90217a06add1c183f1194eb132ca8079197c7f2bc43f644f96bf5ab00a93aa4be499360a01dcc4de8dec75d7aab85b567b6ccd41ad312451b948a7413f0a142fd40d49347942a65aca4d5fc5b5c859090a6c34d164135398226a05ae233f6377f0671c612ec2a8bd15c20e428094f2fafc79bead9c55a989294dda064183d9f805f4aecbf532de75e6ad276dc281ba90947ff706beeaecc14eec6f5a059cf53b2f956a914b8360ea6fe271ebe7b10461c736eb16eb1a4121ba3abbb85b9010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000860710895564a08309a92a832fefd882520884565fc3be98d783010302844765746887676f312e352e31856c696e7578a0c5e99c6e90fbdee5650ff9b6dd41198655872ba32f810de58acb193a954e15898840f1ce50d18d7fdc&quot;,
+	  &quot;route&quot;: [{
+            &quot;enr&quot;: &quot;enr:-IS4QFoKx0TNU0i-O2Bg7qf4Ohypb14-jb7Osuotnm74UVgfXjF4ohvk55ijI_UiOyStfLjpWUZsjugayK-k8WFxhzkBgmlkgnY0gmlwhISdQv2Jc2VjcDI1NmsxoQOuY9X8mZHUYbjqVTV4dXA4LYZarOIxnhcAqb40vMU9-YN1ZHCCZoU&quot;,
+            &quot;distance&quot;: 256
+	  }]
+  }
+}
+</code></pre>
+<h1 id="state-overlay-network"><a class="header" href="#state-overlay-network">State Overlay Network</a></h1>
+<h2 id="portal_stateradius"><a class="header" href="#portal_stateradius"><code>portal_stateRadius</code></a></h2>
+<p>Returns the current data storage radius being used for the State network.</p>
+<h3 id="parameters-2"><a class="header" href="#parameters-2">Parameters</a></h3>
+<p><code>None</code></p>
+<h3 id="returns-2"><a class="header" href="#returns-2">Returns</a></h3>
+<ul>
+<li>Data storage radius.</li>
+</ul>
+<h4 id="example-2"><a class="header" href="#example-2">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: &quot;18446744073709551615&quot;
+}
+</code></pre>
+<h1 id="general"><a class="header" href="#general">General</a></h1>
+<h2 id="portal_paginatelocalcontentkeys"><a class="header" href="#portal_paginatelocalcontentkeys"><code>portal_paginateLocalContentKeys</code></a></h2>
+<p>Return a paginated list of all of the content keys (from every subnetwork) currently available in local storage.</p>
+<h3 id="parameters-3"><a class="header" href="#parameters-3">Parameters</a></h3>
+<ul>
+<li><code>offset</code>: The number of records that need to be skipped.</li>
+<li><code>limit</code>: Number of entries to return.</li>
+</ul>
+<h3 id="returns-3"><a class="header" href="#returns-3">Returns</a></h3>
+<ul>
+<li><code>content_keys</code>: List of content keys.</li>
+<li><code>total_entries</code>: Total number of content keys in local storage.</li>
+</ul>
+<h4 id="example-3"><a class="header" href="#example-3">Example</a></h4>
+<pre><code class="language-json">{
+  &quot;id&quot;: 1,
+  &quot;jsonrpc&quot;: &quot;2.0&quot;,
+  &quot;result&quot;: {
+    &quot;content_keys&quot;: [&quot;0x0055b11b918355b1ef9c5db810302ebad0bf2544255b530cdce90674d5887bb286&quot;],
+    &quot;total_entries&quot;: 1
+  }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="ssz"><a class="header" href="#ssz">SSZ</a></h1>
+<p>The Simple Serialize (SSZ) protocol (<a href="https://github.com/ethereum/consensus-specs/blob/dev/ssz/simple-serialize.md">spec</a>) is used to ensure that data sent to peers is interpreted unambiguously.</p>
+<p>It is used in two main ways:</p>
+<ul>
+<li>Encoding: from rich data (struct, enum) to bytes (<code>Vec&lt;u8&gt;</code>).</li>
+<li>Decoding: from bytes (<code>Vec&lt;u8&gt;</code>) to rich data (struct, enum).</li>
+</ul>
+<p>The encoded data is not self-describing, so you have to know what sort of data you
+are expecting. Hence, the data type descriptions in the Portal Network spec.</p>
+<p>Encoded data can only be interpreted in one way. Additionally, encoded data
+can also be used in Merkle proofs efficiently.</p>
+<h2 id="types"><a class="header" href="#types">Types</a></h2>
+<p>The following is a quick overview of major composite types used. See the spec for
+basic types (e.g., bits, bools, unsigned integers).</p>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Description</th><th>Note</th></tr></thead><tbody>
+<tr><td>List</td><td>Holds variable number of a specified item</td><td>Specify max number</td></tr>
+<tr><td>Vector</td><td>Holds specific number of a specified item</td><td>Specify number</td></tr>
+<tr><td>Container</td><td>Holds many different specified items</td><td>Items are spaced into 32 byte partitions</td></tr>
+<tr><td>Union</td><td>Holds one of many different specified items</td><td>Item kind is specified using a prepended selector byte</td></tr>
+</tbody></table>
+</div>
+<p>Each type can hold any of the other types, so a Containter can hold a List
+and a Union, and the Union can hold another Container, etc.
+Anything that is put into one of the types above must itself be SSZ-able</p>
+<h2 id="implementations"><a class="header" href="#implementations">Implementations</a></h2>
+<p>The <code>ssz</code> crate does a lot of the work by providing <code>Encode</code> and <code>Decode</code> methods that
+can be derived.</p>
+<pre><code class="language-rs no_run">#[derive(Clone, Debug, Decode, Encode, PartialEq)]
+#[ssz(enum_behaviour = &quot;union&quot;)]
+pub enum HistoryContentKey {
+    BlockHeaderWithProof(BlockHeader),
+    BlockBody(BlockBody),
+    BlockReceipts(BlockReceipts),
+    EpochAccumulator(EpochAccumulator),
+}
+</code></pre>
+<p>The spec defines a content key for the History sub-protocol as:</p>
+<pre><code class="language-py">block_header_key = Container(block_hash: Bytes32)
+selector         = 0x00
+content_key      = selector + SSZ.serialize(block_header_key)
+</code></pre>
+<p>The inclusion of the selector is handled by implementing <code>serde::Serialize</code> for
+the enum, and including the appending the appropriate selector byte.</p>
+<p>That is, the hex string ready to be serialized into bytes for a block header would be</p>
+<pre><code class="language-sh"># Header, body or receipts
+&quot;0x&lt;selector byte&gt;&lt;block hash&gt;&quot;
+# Header specifically
+&quot;0x00&lt;block hash&gt;&quot;
+# Serialize to bytes
+[0x00, ...]
+</code></pre>
+<h2 id="merkle-proofs"><a class="header" href="#merkle-proofs">Merkle proofs</a></h2>
+<p>The Epoch Accumulator uses SSZ encoding. This allows for Merkle proofs to be made
+for arbitrary historical blocks against the accumulator.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="kademlia"><a class="header" href="#kademlia">Kademlia</a></h1>
+<p>A protocol for finding content that is distributed amongst peers.</p>
+<h2 id="overview"><a class="header" href="#overview">Overview</a></h2>
+<h3 id="you-know-who-should-have-what"><a class="header" href="#you-know-who-should-have-what">You know who should have what</a></h3>
+<p>Each node is responsible for having some content. Exactly what
+content they have is determined by the ID of the node. Nodes have
+peers, and know the IDs of their peers. Hence, nodes know what data
+their peers <em>should</em> have.</p>
+<h3 id="you-know-if-youre-close"><a class="header" href="#you-know-if-youre-close">You know if you're close</a></h3>
+<p>Each node has a way of determining how close data is to an ID.</p>
+<p>For example, you might say &quot;I only have data that starts with five 0s&quot;.
+If you see data with four zeros, you recognise that it is close. Closer
+than no zeros.</p>
+<pre><code class="language-ignore"># ID
+00000...
+# Close data
+00001...
+# Far away data
+11111...
+</code></pre>
+<h3 id="nodes-prefer-similar-nodes"><a class="header" href="#nodes-prefer-similar-nodes">Nodes prefer similar nodes</a></h3>
+<p>Nodes prefer peers who have data that is close to theirs. Hence
+if you are looking for a piece of data, you can look through your
+peers, find the closest one and ask them. That peer will have
+contacts that are similar, and so you can ask them to check with their peers.</p>
+<p>Hence, network requests can &quot;head in the right direction&quot;.</p>
+<h3 id="visualization"><a class="header" href="#visualization">Visualization</a></h3>
+<p>Animations of the protocol can be seen <a href="https://kelseyc18.github.io/kademlia_vis/basics/1/">here</a></p>
+<h2 id="use-1"><a class="header" href="#use-1">Use</a></h2>
+<h3 id="full-database"><a class="header" href="#full-database">Full database</a></h3>
+<p>When Trin is full and a new piece of data is to be stored, the content is
+stored, and then other data is deleted until the storage is at the targed size.</p>
+<p>This involves repeatedly removing the content with the furthest ID from the node ID until
+the database is below the target.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="core-concepts"><a class="header" href="#core-concepts">Core concepts</a></h1>
+<p>This section contains specific concepts that are common, important or
+that have an interesting facet to understand.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="finding-peers"><a class="header" href="#finding-peers">Finding peers</a></h1>
+<p>If a peer is in a network behind a NAT (Network Address Translation) table, the process for
+finding a peer is more complicated.</p>
+<p>These diagrams are indended as a rough-guide.</p>
+<h2 id="non-nat-simple-case"><a class="header" href="#non-nat-simple-case">Non-NAT simple case</a></h2>
+<p>The bootnode can gossip to Charlie who can then directly contact Alice.</p>
+<pre class="mermaid">sequenceDiagram
+    Alice IP1 PORT1--&gt;&gt;Bootnode: Hello (ENR with no IP)
+    Bootnode--&gt;&gt;Alice IP1 PORT1: Hi, I notice your address is &lt;IP1&gt;:&lt;PORT1&gt;
+    Alice IP1 PORT1--&gt;&gt;Alice IP1 PORT1: Updates ENR (&lt;IP1&gt;:&lt;PORT1&gt;)
+    Bootnode--&gt;&gt;Charlie: Meet Alice (ENR with &lt;IP1&gt;:&lt;PORT1&gt;)
+    Charlie-&gt;&gt;Alice IP1 PORT1: Hello Alice at &lt;IP1&gt;:&lt;PORT1&gt;
+    Alice IP1 PORT1-&gt;&gt;Charlie: Hello (ENR &lt;IP1&gt;:&lt;PORT1&gt;)
+</pre>
+<h2 id="nat-problem"><a class="header" href="#nat-problem">NAT problem</a></h2>
+<p>The bootnode can gossip to Charlie, but Charlie is a stranger from the NAT's perspective.
+It doesn't know who on the internal network is the recipient.</p>
+<ul>
+<li>The NAT remembers who it has spoken to.</li>
+<li>Messages from the bootnode are expected.</li>
+<li>Messages from Charlie are not expected, and its not clear who they are for. Perhaps
+the smart fridge?</li>
+</ul>
+<pre class="mermaid">sequenceDiagram
+    Alice IP1 PORT1--&gt;&gt;NAT IP2 PORT2: Hello bootnode (ENR with no IP)
+    Note right of NAT IP2 PORT2: Stores Bootnode
+    NAT IP2 PORT2--&gt;&gt;NAT IP2 PORT2: Maps from internal IP
+    NAT IP2 PORT2--&gt;&gt;Bootnode: Hello bootnode (ENR with no IP)
+    Bootnode--&gt;&gt;NAT IP2 PORT2: Hi, I notice your address is &lt;IP2&gt;:&lt;PORT2&gt;
+    NAT IP2 PORT2--&gt;&gt;NAT IP2 PORT2: Maps to internal IP
+    NAT IP2 PORT2--&gt;&gt;Alice IP1 PORT1: Hi, I notice your address is &lt;IP2&gt;:&lt;PORT2&gt;
+    Alice IP1 PORT1--&gt;&gt;Alice IP1 PORT1: Updates ENR (&lt;IP2&gt;:&lt;PORT2&gt;)
+    Alice IP1 PORT1--&gt;&gt;NAT IP2 PORT2: Thanks bootnode (ENR with &lt;IP2&gt;:&lt;PORT2&gt;)
+    NAT IP2 PORT2--&gt;&gt;Bootnode: Thanks boodnode (ENR with &lt;IP2&gt;:&lt;PORT2&gt;)
+    Bootnode--&gt;&gt;Charlie: Meet Alice (ENR with &lt;IP2&gt;:&lt;PORT2&gt;)
+    Charlie-&gt;&gt;NAT IP2 PORT2: Hello Alice at &lt;IP2&gt;:&lt;PORT2&gt;
+    Note right of NAT IP2 PORT2: No map on record. Who is this for?
+    Note right of Charlie: Hmm Alice didn't respond.
+</pre>
+<h2 id="the-nat-solution"><a class="header" href="#the-nat-solution">The NAT solution</a></h2>
+<p>If Alice knows she is behind a NAT, she can pass a message which goes:</p>
+<p>&quot;I'm behind a NAT. Send your requests via peers and I'll reach out to you.&quot;</p>
+<ul>
+<li>The bootnode gossips to Charlie</li>
+<li>Charlie sees &quot;NAT&quot; in Alices ENR</li>
+<li>Charlie asks the bootnode to introduce him to Alice</li>
+<li>Alice reaches out to Charlie</li>
+<li>The NAT now has a mapping for Charlie-Alice messages.</li>
+</ul>
+<h3 id="part-1-nat-detection"><a class="header" href="#part-1-nat-detection">Part 1: NAT detection</a></h3>
+<p>Alice can suspect that she is behind a NAT probabalitically.
+If 2 minutes after connecting with a bootnode, no strangers (like Charlie)
+have reached out, a NAT is likely.</p>
+<pre class="mermaid">sequenceDiagram
+    Alice IP1 PORT1--&gt;&gt;NAT IP2 PORT2: Hello bootnode (ENR with no IP)
+    Note right of NAT IP2 PORT2: Stores Bootnode
+    NAT IP2 PORT2--&gt;&gt;NAT IP2 PORT2: Maps from internal IP
+    NAT IP2 PORT2--&gt;&gt;Bootnode: Hello bootnode (ENR with no IP)
+    Bootnode--&gt;&gt;NAT IP2 PORT2: Hi, I notice your address is &lt;IP2&gt;:&lt;PORT2&gt;
+    NAT IP2 PORT2--&gt;&gt;NAT IP2 PORT2: Maps to internal IP
+    NAT IP2 PORT2--&gt;&gt;Alice IP1 PORT1: Hi, I notice your address is &lt;IP2&gt;:&lt;PORT2&gt;
+    Alice IP1 PORT1--&gt;&gt;Alice IP1 PORT1: Updates ENR (&lt;IP2&gt;:&lt;PORT2&gt;)
+    Alice IP1 PORT1--&gt;&gt;NAT IP2 PORT2: Thanks bootnode (ENR with &lt;IP2&gt;:&lt;PORT2&gt;)
+    NAT IP2 PORT2--&gt;&gt;Bootnode: Thanks boodnode (ENR with &lt;IP2&gt;:&lt;PORT2&gt;)
+    Note right of Alice IP1 PORT1: ... Hmm no strangers. Must be a NAT.
+
+</pre>
+<h3 id="part-2-nat-communication"><a class="header" href="#part-2-nat-communication">Part 2: NAT communication</a></h3>
+<p>Alice can put &quot;NAT&quot; in her ENR. Now when Charlie tries to get in touch,
+he knows to go via a peer.</p>
+<p>Continued from above, skipping Charlie's failed attempt to contact Alice directly.</p>
+<pre class="mermaid">sequenceDiagram
+    Note right of Alice IP1 PORT1: ... Hmm no strangers. Must be a NAT.
+    Alice IP1 PORT1--&gt;&gt;NAT IP2 PORT2: Update: NAT (ENR with NAT &lt;IP2&gt;:&lt;PORT2&gt;)
+    NAT IP2 PORT2--&gt;&gt;Bootnode: Update: NAT (ENR with NAT &lt;IP2&gt;:&lt;PORT2&gt;)
+    Bootnode--&gt;&gt;Charlie: Meet Alice (ENR with NAT &lt;IP2&gt;:&lt;PORT2&gt;)
+    Charlie-&gt;&gt;Bootnode: Hello Alice (From Charlie ENR(&lt;charlie&gt;))
+    Note right of Bootnode: To Alice via Bootnode
+    Bootnode-&gt;&gt;NAT IP2 PORT2: Hello Alice (From Charlie ENR(&lt;charlie&gt;))
+    NAT IP2 PORT2--&gt;&gt;NAT IP2 PORT2: Maps to internal IP
+    NAT IP2 PORT2--&gt;&gt;Alice IP1 PORT1:  Hello Alice (From Charlie ENR(&lt;charlie&gt;))
+    Alice IP1 PORT1--&gt;&gt;NAT IP2 PORT2: Hello Charlie (ENR with NAT &lt;IP2&gt;:&lt;PORT2&gt;)
+    Note right of NAT IP2 PORT2: Stores Charlie
+    NAT IP2 PORT2--&gt;&gt;NAT IP2 PORT2: Maps from internal IP
+    NAT IP2 PORT2--&gt;&gt;Charlie: Hello Charlie (ENR with NAT &lt;IP2&gt;:&lt;PORT2&gt;)
+    Charlie--&gt;&gt;NAT IP2 PORT2: Hi Alice
+    NAT IP2 PORT2--&gt;&gt;NAT IP2 PORT2: Maps to internal IP
+    Note right of NAT IP2 PORT2: Finally has a mapping for Charlie!
+    NAT IP2 PORT2--&gt;&gt;Alice IP1 PORT1: Hello Alice
+</pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chain-tip"><a class="header" href="#chain-tip">Chain tip</a></h1>
+<p>A Trin node can serve information about the chain tip, such as the latest
+block number. A Trin node knows about the beacon chain protocol that is
+creating the chain tip.</p>
+<p>By listening to activity on the beacon chain
+network, it can follow the activities of members of the sync committee. If a certain fraction
+of the sync committee have signed off on a certain beacon block, the Trin node can
+be confident that this is likely to be the chain tip.</p>
+<p>Beacon blocks contain references to Ethereum blocks, and so the node can see the tip of the
+Execution chain.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cryptographic-accumulator"><a class="header" href="#cryptographic-accumulator">Cryptographic accumulator</a></h1>
+<p>A cryptographic accumulator is a structure that allows verification that a specific
+block header in the past is part of the canonical chain.</p>
+<p>The History sub-protocol is reponsible for accumulator-related data.</p>
+<p>An accumulator has been constructed for the Portal Network, because it is too burdensome to
+keep all the headers on disk. This applies to pre-merge blocks. For post-merge blocks, the Beacon Chain already maintains an accumulator that Trin can use via a Beacon Chain light client.</p>
+<h2 id="canonicality"><a class="header" href="#canonicality">Canonicality</a></h2>
+<p>A block can be valid but not canonical if it is an Uncle. Blocks A-F are canonical, with F
+being the latest block.</p>
+<p>While Uncle_1 may have a valid block difficulty and parent, it was not built upon.</p>
+<pre class="mermaid">flowchart RL
+    Uncle_3-.-&gt;D
+    F---&gt;E
+    E---&gt;D
+    Uncle_4-.-&gt;D
+    Uncle_1-.-&gt;C
+    D---&gt;C
+    Uncle_2-.-&gt;C;
+    C---&gt;B;
+    B---&gt;A;
+</pre>
+<p>If a Trin node is presented with such a block, it can check the accumulator, which only
+processes non-uncle blocks A-F.</p>
+<h2 id="tip-knowledge"><a class="header" href="#tip-knowledge">Tip knowledge</a></h2>
+<p>First, the most recent block hash at the tip of the accumulator must be known.</p>
+<p>This is easy, as the the accumulator only needs to cover pre-merge blocks. The
+final pre-merge block (last Proof of Work block) hash is known and never needs to be updated.</p>
+<h2 id="proofs"><a class="header" href="#proofs">Proofs</a></h2>
+<p>A Merkle proof can be constructed for any given historical block hash. The proof asserts
+that a given hash (from a peer) is part of the accumulator (valid based on knowledge of the
+current chain tip).</p>
+<p>A proof cannot be constructed for any other sort of block (Uncle block, fabricated block).</p>
+<h2 id="accumulator-construction"><a class="header" href="#accumulator-construction">Accumulator construction</a></h2>
+<p>The accumulator is specifically a double-batched merkle log accumulator.</p>
+<p>First historical blocks are processed in batches called Epochs (unrelated to the concept
+of a 32-slot epoch in the Beacon Chain).</p>
+<p>The accumulator constructor consists of two lists:</p>
+<ul>
+<li>One cache for holding blocks (header and difficulty).</li>
+<li>One final store (Master Accumulator) that the cache roots are added to.</li>
+</ul>
+<pre class="mermaid">flowchart TD
+    Genesis--&gt;new_epoch[Start new Epoch Accumulator]
+    new_epoch--&gt;append
+    append[Append block header and difficulty to Epoch Accumulator]
+    append--&gt; epoch_done{Done 8192 yet?}
+    epoch_done -.-&gt;|Yes| get_epoch_root
+    epoch_done --&gt;|No| PoS{PoS reached?}
+    PoS --&gt; |No| append
+    PoS -.-&gt; |Yes| finished[Finished]
+    add_root[Append root to Master Accumulator] -.-&gt; new_epoch
+    get_epoch_root[Compute hash tree root of epoch] -.-&gt; add_root
+    finished -.-&gt; save[Save incomplete final epoch and Master Accumulator]
+
+</pre>
+<p>Thus the final output is a list of roots called the Master Accumulator.</p>
+<h2 id="constructing-proofs"><a class="header" href="#constructing-proofs">Constructing proofs</a></h2>
+<p>If you have a block and you know the block number, then you know which epoch
+root is relevant. You also know which part of the epoch it came from. That is,
+you know the index of the leaf in the Merkle tree.</p>
+<p>With the root of the tree, the index and the data (the block hash in question), a proof
+can be constructed showing that this leaf was part of the tree.</p>
+<h2 id="proof-use"><a class="header" href="#proof-use">Proof use</a></h2>
+<p>A proof can be to a peer alongside the data. That way, a peer can quickly and check
+that the data is canonical.</p>
+<h2 id="accumulator-distribution"><a class="header" href="#accumulator-distribution">Accumulator distribution</a></h2>
+<p>The Accumulator is built once and then distributed in Trin (and other clients). It does not
+change over time and so can be incorporated into the <code>trin-core</code> (<code>./trin-core/src/assets</code>) and
+included in binary releases.</p>
+<p>The History network contains individual epoch hashes from the Master Accumulator and
+refers to them with the terms: <code>epoch_accumulator</code> and <code>epoch_accumulator_key</code>
+(includes selector). See the History sub-protocol section of the Portal Network spec.</p>
+<h2 id="master-accumulator-details"><a class="header" href="#master-accumulator-details">Master accumulator details</a></h2>
+<p>The Master Accumulator consists of:</p>
+<ul>
+<li>1895 complete epoch roots</li>
+<li>1 incomplete epoch root (a partial epoch witht 5362 records (block headers))</li>
+</ul>
+<pre><code class="language-csv">epoch,index
+8191,0x5ec1ffb8c3b146f42606c74ced973dc16ec5a107c0345858c343fc94780b4218 // first epoch
+16383,0xa5364e9a9bc513c4601f0d62e6b46dbdedf3200bbfae54d6350f46f2c7a01938
+...
+15523839,0x804008940c025a4e8a00ea42a659b484ba32c14dff133e9d3b7bf3685c1e54de // penultimate epoch (full)
+15532031,0x3f81607c8cb3f0448a11cab8df0e504b605581f4891a9a35bd9c0dd37a71834f // final epoch (incomplete)
+</code></pre>
+<p>Final PoW block: <code>15537394</code></p>
+<p>The hash tree root of the Master Accumulator is:</p>
+<pre><code class="language-sh">0x8eac399e24480dce3cfe06f4bdecba51c6e5d0c46200e3e8611a0b44a3a69ff9
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="bridge"><a class="header" href="#bridge">Bridge</a></h1>
+<p>Blocks are produced by Ethereum Execution clients which use a different
+network to Portal Network nodes. A Bridge node is responsible for taking data
+from the external network and passing it to the Portal Network.</p>
+<pre class="mermaid">flowchart LR
+    eth[Ethereum Execution node]--&gt;bridge[Portal Network Bridge node]
+    bridge--&gt;portal[Portal network node]
+</pre>
+<p>This operates as follows:</p>
+<pre class="mermaid">sequenceDiagram
+    Bridge--&gt;&gt;Execution: eth_getBlock
+    Execution--&gt;&gt;Bridge: block
+    Bridge--&gt;&gt;Portal: block
+</pre>
+<p>Currently the bridge functionality exists as a separate python application
+with plans to implement in Trin.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="archive-nodes"><a class="header" href="#archive-nodes">Archive nodes</a></h1>
+<p>A Portal Network node is not an archival node. This page explores the reason for this
+and some considerations on the topic.</p>
+<p>An archive node is one that can know the history at a certain block in the past.</p>
+<p>A non-archive node has this information until a block is 128 blocks old. After this
+point the data is forgotten.</p>
+<h2 id="old-state"><a class="header" href="#old-state">Old state</a></h2>
+<p>Archive nodes store old states</p>
+<ul>
+<li>What was the balance of token x at block y?</li>
+<li>What was in storage slot x at block y?</li>
+</ul>
+<h2 id="old-traces"><a class="header" href="#old-traces">Old traces</a></h2>
+<p>Archive nodes store old traces. This means that they can re-execute old
+transactions and show everything that the EVM did.</p>
+<ul>
+<li>What events were emitted during transaction x?</li>
+<li>How much gas did transaction x use?</li>
+</ul>
+<h2 id="requirements-1"><a class="header" href="#requirements-1">Requirements</a></h2>
+<p>Consider an archive node that is going to trace the 100th transaction in an old
+block.</p>
+<ul>
+<li>The transaction may call a contract, which may in turn call another contract (etc., ). The state of the contracts must be known (balance, nonce, bytecode, storage)</li>
+<li>The transaction may reference the hash of a preceeding block (up to depth of 256 blocks)</li>
+<li>The transaction may modify state that has already been modified in in the preceeding 99
+transactions.</li>
+</ul>
+<h2 id="would-an-archive-sub-protocol-be-of-use"><a class="header" href="#would-an-archive-sub-protocol-be-of-use">Would an Archive sub-protocol be of use?</a></h2>
+<h3 id="not-for-sequential-data-analysis"><a class="header" href="#not-for-sequential-data-analysis">Not for sequential data analysis</a></h3>
+<p>Archival nodes are great for data science because they allow traversing a large number
+of sequential blocks and tracking changes over time.</p>
+<p>A portal node would not be suited for this activity because it requires sequential blocks
+rather than posession of data based on the nodes ID. Hence a Portal Node has a disperse subset of
+content and would need to ask peers for data for sequential blocks. Asking for all sequential
+blocks would cause an infeasible burden on peers.</p>
+<h3 id="possibly-for-personal-wallet-history"><a class="header" href="#possibly-for-personal-wallet-history">Possibly for personal wallet history</a></h3>
+<p>A user with access to an index of address appearances (such as the Unchained Index)
+could make queries about their historical transactions. This could be for a wallet,
+multisig contract or any contract.</p>
+<p>After retrieving the traces for these transactions, they could be used to create a
+display of activity. E.g., A graph of token balances changing over time, or a log
+of on-chain activity (trades, loans, transfers, NFT activity).</p>
+<h2 id="could-an-archive-sub-protocol-exist"><a class="header" href="#could-an-archive-sub-protocol-exist">Could an Archive sub-protocol exist?</a></h2>
+<p>It is not impossible. However, the goal of the Portal Network is to provide the
+function of a non-tracing node. Some considerations are explored below.</p>
+<h3 id="intra-block-state"><a class="header" href="#intra-block-state">Intra-block state</a></h3>
+<p>To trace the last transaction in a block, all preceeding transaction final states
+must be known. Hence single request for a transaction trace could result in requiring
+many transactions in a single block to be obtained. This applies to popular contracts
+that appear frequently in a block (e.g., exchanges, and popular tokens).</p>
+<p>Consequence of a request for a transaction at the end of a block involving popular contracts:</p>
+<ul>
+<li>It would be very slow to get a response</li>
+<li>It could be used as a denial of service (DoS) attack on the network. For instance,
+by finding the final transactions in blocks and requesting them from different nodes.</li>
+</ul>
+<h3 id="nested-contract-calls"><a class="header" href="#nested-contract-calls">Nested contract calls</a></h3>
+<p>A contract could start a chain of nested calls to other contracts. If a node
+does not have the state of these contracts, it would have to request them.
+Hence, the time to trace such a transaction would be very slow. Every nested
+call would take the time that a single Portal Network request takes.</p>
+<p>Consequences of a request for a transaction with deeply nested contract calls:</p>
+<ul>
+<li>It would be very slow to get a response</li>
+<li>It could be used as a denial of service (DoS) attack on the network. For instance,
+by finding many nested transactions and requesting them from different nodes.</li>
+</ul>
+<h3 id="duplication-of-data"><a class="header" href="#duplication-of-data">Duplication of data</a></h3>
+<p>If Archive was a sub-protocol there may be some data that is required to be duplicated
+on the History or State sub-protocols. This implies that the sub-protocol is inefficient
+with respect to disk space but may not be a significant problem.</p>
+<h3 id="medium-sized-portal-nodes"><a class="header" href="#medium-sized-portal-nodes">Medium-sized portal nodes</a></h3>
+<p>There is a always a moderate amount of interest in archive nodes, for many parties
+find historical Ethereum data valuable. As archive nodes require minimum ~2TB
+of storage, many people choose not to run one.</p>
+<p>Perhaps there is a large enough appetite to run a &quot;medium-sized portal archive node&quot;,
+such that many users contribute ~100GB.
+In this scenario, the DoS attacks are reduced as these medium-sized nodes would
+cause less amplification of network traffic.</p>
+<h3 id="appetite-for-lags"><a class="header" href="#appetite-for-lags">Appetite for lags</a></h3>
+<p>If the desire for the results of an archive node are large enough, applications
+and users could be tolerant of slow lookup times. For example, a wallet connected to a
+portal archive node could display current wallet state quickly, but under a &quot;history&quot; tab could show: &quot;performing deep search... Estimated time 24 hours&quot;. Once the information has been retrieved
+it could then be stored for fast access.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="contributor-guidelines"><a class="header" href="#contributor-guidelines">Contributor guidelines</a></h1>
+<p>These guidelines are heavily influenced by the <a href="https://github.com/ethereum/snake-charmers-tactical-manual">Snake-Charmer Tactical Manual</a>. While the manual is written with a focus on Python projects, there is tons of relevant information in there for how to effectively contribute to open-source projects, and it's recommended that you look through the manual before contributing.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rust"><a class="header" href="#rust">Rust</a></h1>
+<p>Trin is written in Rust. This section includes guidelines for Rust-specific
+patterns and principles.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="comments"><a class="header" href="#comments">Comments</a></h1>
+<p>Any datatype of significance <strong>should</strong> have an accompanying comment briefly describing its role and responsibilities. Comments are an extremely valuable tool in open-source projects with many different contributors, and can greatly improve development speed. Explain your assumptions clearly so others don't need to dig through the code.</p>
+<ul>
+<li>Rust <a href="https://doc.rust-lang.org/rust-by-example/meta/doc.html">doc comments</a> are the most best way to comment your code.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="imports"><a class="header" href="#imports">Imports</a></h1>
+<ul>
+<li>In <code>*.rs</code> files, imports should be split into 3 groups <a href="https://github.com/rust-dev-tools/fmt-rfcs/issues/131">src</a> and separated by a single line. Within a single group, imported items should be sorted alphabetically.
+<ul>
+<li>Imports from <code>'std'</code></li>
+<li>Imports from external crates</li>
+<li>Imports from within the same crate (<code>trin-core</code>, <code>trin-history</code>, <code>trin-state</code> inclusive).</li>
+</ul>
+</li>
+<li>Alphabetize imports in <code>Cargo.toml</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="logging"><a class="header" href="#logging">Logging</a></h1>
+<ul>
+<li>All logging should be done with the <code>log</code> library and not <code>println!()</code> statements.</li>
+<li>Appropriate log levels (<code>debug</code>, <code>warn</code>, <code>info</code>, etc.) should be used with respect to their content.</li>
+<li>Log statements should be declarative, useful, succinct and formatted for readability.</li>
+</ul>
+<p>Bad:</p>
+<pre><code class="language-sh">Oct 25 23:42:11.079 DEBUG trin_core::portalnet::events: Got discv5 event TalkRequest(TalkRequest { id: RequestId([226, 151, 109, 239, 115, 223, 116, 109]), node_address: NodeAddress { socket_addr: 127.0.0.1:4568, node_id: NodeId { raw: [5, 208, 240, 167, 153, 116, 216, 224, 160, 101, 80, 229, 154, 206, 113, 239, 182, 109, 181, 137, 16, 96, 251, 63, 85, 223, 235, 208, 3, 242, 175, 11] } }, protocol: [115, 116, 97, 116, 101], body: [1, 1, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 1, 0, 0, 0, 255, 255, 255, 255, 255, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 36, 0, 0, 0, 0, 0, 0, 0], sender: Some(UnboundedSender { chan: Tx { inner: Chan { tx: Tx { block_tail: 0x55c4fe611290, tail_position: 1 }, semaphore: 0, rx_waker: AtomicWaker, tx_count: 2, rx_fields: &quot;...&quot; } } }) })
+</code></pre>
+<p>Good:</p>
+<pre><code class="language-sh">Oct 25 23:43:02.373 DEBUG trin_core::portalnet::overlay: Received Ping(enr_seq=1, radius=18446744073709551615)
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="error-handling"><a class="header" href="#error-handling">Error handling</a></h1>
+<ul>
+<li>Handle errors. Naked <code>.unwrap()</code>s aren't allowed, except for in unit tests.
+Exceptions must be accompanied by a note justifying usage.
+<ul>
+<li>In most cases where an exception can be made (E.g., parsing a static value) <code>.expect()</code> with a relevant message should be used over a naked unwrap.</li>
+</ul>
+</li>
+<li>Write descriptive error messages that give context of the problem that occurred. Error messages should be unique, to aid with debugging.</li>
+<li>Meaningful error types should be used in place of <code>Result&lt; _, String&gt;</code>.
+<ul>
+<li>General errors should use the <a href="https://docs.rs/anyhow/latest/anyhow/">anyhow</a> crate.</li>
+<li>Custom / typed errors should derive from the <code>std::error::Error</code> trait. The <a href="https://docs.rs/thiserror/1.0.30/thiserror/"><code>thiserror</code></a> crate provides a useful macro to simplify creating custom error types.</li>
+</ul>
+</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="style"><a class="header" href="#style">Style</a></h1>
+<h2 id="clone"><a class="header" href="#clone">Clone</a></h2>
+<p>Minimize the amount of <code>.clone()</code>s used. Cloning can be a useful mechanism, but should be used with discretion. When leaned upon excessively to <a href="https://rust-unofficial.github.io/patterns/anti_patterns/borrow_clone.html">satisfy the borrow checker</a> it can lead to unintended consequences.</p>
+<h2 id="string-interpolation"><a class="header" href="#string-interpolation">String interpolation</a></h2>
+<p>Use interpolated string formatting when possible.</p>
+<ul>
+<li>Do <code>format!(&quot;words: {var:?}&quot;)</code> not <code>format!(&quot;words: {:?}&quot;, var)</code></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="git"><a class="header" href="#git">Git</a></h1>
+<p>This section covers guidelines and common scenarios encountered with
+using git and github for Trin development.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="commit-messages"><a class="header" href="#commit-messages">Commit messages</a></h1>
+<h2 id="commit-hygiene"><a class="header" href="#commit-hygiene">Commit Hygiene</a></h2>
+<p>We do not have any stringent requirements on how you commit your work, however
+you should work towards the following with your git habits.</p>
+<h2 id="logical-commits"><a class="header" href="#logical-commits">Logical Commits</a></h2>
+<p>This means that each commit contains one logical change to the code.  For example:</p>
+<ul>
+<li>commit <code>A</code> introduces new API</li>
+<li>commit <code>B</code> deprecates or removes the old API being replaced.</li>
+<li>commit <code>C</code> modifies the configuration for CI.</li>
+</ul>
+<p>This approach is sometimes easier to do <em>after</em> all of the code has been
+written.  Once things are complete, you can <code>git reset master</code> to unstage all
+of the changes you've made, and then re-commit them in small chunks using <code>git add -p</code>.</p>
+<h2 id="commit-messages-1"><a class="header" href="#commit-messages-1">Commit Messages</a></h2>
+<p>We don't care much about commit messages other than that they be sufficiently
+descriptive of what is being done in the commit.</p>
+<p>The <em>correct</em> phrasing of a commit message.</p>
+<ul>
+<li><code>fix bug #1234</code> (correct)</li>
+<li><code>fixes bug #1234</code> (wrong)</li>
+<li><code>fixing bug #1234</code> (wrong)</li>
+</ul>
+<p>One way to test whether you have it right is to complete the following sentence.</p>
+<blockquote>
+<p>If you apply this commit it will ________________.</p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="rebasing"><a class="header" href="#rebasing">Rebasing</a></h1>
+<p>You should be using <code>git rebase</code> when there are <em>upstream</em> changes that you
+need in your branch.  You <strong>should not</strong> use <code>git merge</code> to pull in these
+changes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="release-notes"><a class="header" href="#release-notes">Release notes</a></h1>
+<p>Every pull request should include a Newsfragment markdown file to describe the contents of the pull request. These files are automatically formatted &amp; collected upon each new release. The format for creating a Newsfragment file can be found in the <a href="developers/contributing/git/../newsfragments/README.html">README</a>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="pull-requests"><a class="header" href="#pull-requests">Pull requests</a></h1>
+<p>We are a distributed team.  The primary way we communicate about our code is
+through github via pull requests.</p>
+<ul>
+<li>When you start work on something you should have a pull request opened that
+same day.</li>
+<li>Mark unfinished pull requests with the &quot;Work in Progress&quot; label.</li>
+<li>Before submitting a pr for review, you should run the following commands
+locally and make sure they are passing, otherwise CI will raise an error.
+<ul>
+<li><code>cargo fmt --all -- --check</code> and <code>cargo clippy --all -- --deny warnings</code> for linting checks</li>
+<li><code>RUSTFLAGS='-D warnings' cargo test --workspace</code> to run all tests</li>
+<li>Run the <code>ethportal-peertest</code> harness against a locally running node. Instructions
+can be found in <a href="developers/contributing/git/../ethportal-peertest/README.html">README</a>.</li>
+</ul>
+</li>
+<li>Pull requests <strong>should</strong> always be reviewed by another member of the team
+prior to being merged.
+<ul>
+<li>Obvious exceptions include very small pull requests.</li>
+<li>Less obvious examples include things like time-sensitive fixes.</li>
+</ul>
+</li>
+<li>You should not expect feedback on a pull request which is not passing CI.
+<ul>
+<li>Obvious exceptions include soliciting high-level feedback on your approach.</li>
+</ul>
+</li>
+</ul>
+<p>Large pull requests (above 200-400 lines of code changed) cannot be effectively
+reviewed.  If your pull request exceeds this threshold you <strong>should</strong> make
+every effort to divide it into smaller pieces.</p>
+<p>You as the person opening the pull request should assign a reviewer.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="code-review"><a class="header" href="#code-review">Code review</a></h1>
+<h2 id="reviewing"><a class="header" href="#reviewing">Reviewing</a></h2>
+<p>Every team member is responsible for reviewing code. The designations :speech_balloon:, :heavy_check_mark:, and :x: <strong>should</strong> be left by a reviewer as follows:</p>
+<ul>
+<li>:speech_balloon: (Comment) should be used when there is not yet an opinion on overall validity of complete PR, for example:
+<ul>
+<li>comments from a partial review</li>
+<li>comments from a complete review on a Work in Progress PR</li>
+<li>questions or non-specific concerns, where the answer might trigger an expected change before merging</li>
+</ul>
+</li>
+<li>:heavy_check_mark: (Approve) should be used when the reviewer would consider it acceptable for the contributor to merge, <em>after addressing</em> all the comments. For example:
+<ul>
+<li>style nitpick comments</li>
+<li>compliments or highlights of excellent patterns (&quot;addressing&quot; might be in the form of a reply that defines scenarios where the pattern could be used more in the code, or a simple :+1:)</li>
+<li>a specific concern, where multiple reasonable solutions can adequately resolve the concern</li>
+<li>a Work in Progress PR that is far enough along</li>
+</ul>
+</li>
+<li>:x: (Request changes) should be used when the reviewer considers it unacceptable to merge without another review of changes that address the comments. For example:
+<ul>
+<li>a specific concern, without a satisfactory solution in mind</li>
+<li>a specific concern with a satisfactory solution provided, but <em>alternative</em> solutions <strong>may</strong> be unacceptable</li>
+<li>any concern with significant subtleties</li>
+</ul>
+</li>
+</ul>
+<h2 id="responding"><a class="header" href="#responding">Responding</a></h2>
+<p>Contributors <strong>should</strong> react to reviews as follows:</p>
+<ul>
+<li>:x: if <em>any</em> review is marked as &quot;Request changes&quot;:
+<ul>
+<li>make changes and/or request clarification</li>
+<li><strong>should not</strong> merge until reviewer has reviewed again and changed the status</li>
+</ul>
+</li>
+<li>(none) if there are no reviews, contributor should not merge.</li>
+<li>:speech_balloon: if <em>all</em> reviews are comments, then address the comments. Otherwise, treat as if no one has reviewed the PR.</li>
+<li>:heavy_check_mark: if <em>at least one</em> review is Approved, contributor <strong>should</strong> do these things before merging:
+<ul>
+<li>make requested changes</li>
+<li>if any concern is unclear in any way, ask the reviewer for clarification before merging</li>
+<li>solve a concern with suggested, or alternative, solution</li>
+<li>if the reviewer's concern is clearly a misunderstanding, explain and merge. Contributor should be on the lookout for followup clarifications on the closed PR</li>
+<li>if the contributor simply disagrees with the concern, it would be best to communicate with the reviewer before merging</li>
+<li>if the PR is approved as a work-in-progress: consider reducing the scope of the PR to roughly the current state, and merging. (multiple smaller PRs is better than one big one)</li>
+</ul>
+</li>
+</ul>
+<p>It is also recommended to use the emoji responses to signal agreement or that
+you've seen a comment and will address it rather than replying.  This reduces
+github inbox spam.</p>
+<p>Everyone is free to review any pull request.</p>
+<p>Recommended Reading:</p>
+<ul>
+<li><a href="https://mtlynch.io/human-code-reviews-1/">How to Do Code Reviews Like a Human</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="fetching-a-pull-request"><a class="header" href="#fetching-a-pull-request">Fetching a pull request</a></h1>
+<p>We often want or need to run code that someone proposes in a PR. Typically this involves adding the remote of the PR author locally and then fetching their branches.</p>
+<p>Example:</p>
+<pre><code class="language-sh">git remote add someone https://github.com/someone/reponame.git
+git fetch someone
+git checkout someone/branch-name
+</code></pre>
+<p>With an increasing number of different contributors this workflow becomes tedious.
+Luckily, there's a little trick that greatly improves the workflow as it lets us
+pull down any PR without adding another remote.</p>
+<p>To do this, we just have to add the following line in the <code>[remote &quot;origin&quot;]</code>
+section of the <code>.git/config</code> file in our local repository.</p>
+<pre><code class="language-sh">fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+</code></pre>
+<p>Then, checking out a PR locally becomes as easy as:</p>
+<pre><code class="language-sh">git fetch origin
+git checkout origin/pr/&lt;number&gt;
+</code></pre>
+<blockquote>
+<p>Replace <code>origin</code> ☝ with the actual name (e.g. <code>upstream</code>) that we use for the
+remote that we want to fetch PRs from.</p>
+</blockquote>
+<p>Notice that fetching PRs this way is <em>read-only</em> which means that in case we do
+want to contribute back to the PR (and the author has this enabled), we would
+still need to add their remote explicitly.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="merging"><a class="header" href="#merging">Merging</a></h1>
+<p>Once your pull request has been <em>Approved</em> it may be merged at your discretion.  In most cases responsibility for merging is left to the person who opened the pull request, however for simple pull requests it is fine for anyone to merge.</p>
+<p>If substantive changes are made <strong>after</strong> the pull request has been marked <em>Approved</em> you should ask for an additional round of review.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="releases"><a class="header" href="#releases">Releases</a></h1>
+<p>This section covers the process of making a Trin release.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="notes"><a class="header" href="#notes">Notes</a></h1>
+<p><strong>Prerequisite</strong>: Release notes are generated with <a href="https://pypi.org/project/towncrier/">towncrier</a>. Ensure to have <code>towncrier</code> installed and the command is available.</p>
+<p>Run <code>make notes version=&lt;version&gt;</code> where <code>&lt;version&gt;</code> is the version we are generating the release notes for e.g. <code>0.2.0-alpha</code>.</p>
+<p>Example:</p>
+<pre><code class="language-sh">make notes version=0.2.0-alpha
+</code></pre>
+<p>Examine the generated release notes and if needed perform and commit any manual changes.
+Generated notes are located in <code>/docs/release_notes.md</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="versioning"><a class="header" href="#versioning">Versioning</a></h1>
+<p>Make sure that version follows <a href="https://semver.org/">semver</a> rules e.g (<code>0.2.0-alpha</code>).</p>
+<p><strong>For the time being, ALWAYS specify the <code>-alpha</code> suffix.</strong></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="generation"><a class="header" href="#generation">Generation</a></h1>
+<h2 id="crate-versions"><a class="header" href="#crate-versions">Crate versions</a></h2>
+<p>When cutting a new release, the versions of every crate in this repo should be updated simultaneously to the new version.</p>
+<h2 id="generate-the-release"><a class="header" href="#generate-the-release">Generate the release</a></h2>
+<p><strong>Prerequisite</strong>: Make sure the central repository is configured as <code>origin</code>.</p>
+<p>Run <code>make release version=&lt;version&gt;</code>.</p>
+<p>Example:</p>
+<pre><code class="language-sh">make release version=0.2.0-alpha
+</code></pre>
+<h3 id="update-testnet-nodes"><a class="header" href="#update-testnet-nodes">Update testnet nodes</a></h3>
+<p>Run <code>make create-docker-image</code> and <code>make push-docker-image</code> commands with the appropriate version.</p>
+<p>Example:</p>
+<pre><code class="language-sh">make create-docker-image version=0.2.0-alpha
+make push-docker-image version=0.2.0-alpha
+</code></pre>
+<p>Run the Ansible playbook to fetch the newly available docker image and update the testnet nodes.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tests"><a class="header" href="#tests">Tests</a></h1>
+<p>Testing is essential to the production of software with minimal flaws. The default should always be writing tests for the code you produce.</p>
+<p>Testing also introduces overhead into our workflow. If a test suite takes a long time to run, it slows down our iteration cycle. This means finding a pragmatic balance between thorough testing, and the speed of our test suite, as well as always iterating on our testing infrastructure.</p>
+<p>Unit test names should unambiguously identify the functionality being tested. Omit any &quot;test&quot; prefix from the name to avoid redundancy.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="book"><a class="header" href="#book">Book</a></h1>
+<h2 id="using-the-book"><a class="header" href="#using-the-book">Using the book</a></h2>
+<p>The book can be built and served locally.</p>
+<pre><code class="language-sh">cargo install mdbook
+</code></pre>
+<p>Install support for <code>mermaid</code> diagrams:</p>
+<pre><code class="language-sh">cd book
+cargo install mdbook-mermaid
+mdbook-mermaid install
+</code></pre>
+<p>This will create <code>mermaid.min.js</code> and <code>mermaid-init.js</code> files.</p>
+<p>Then run the book from the book crate:</p>
+<pre><code class="language-sh">mdbook serve --open
+</code></pre>
+<p>Or the project root:</p>
+<pre><code class="language-sh">mdbook serve --open ./book
+</code></pre>
+<h2 id="adding-new-pages"><a class="header" href="#adding-new-pages">Adding new pages</a></h2>
+<p>Add a new entry to <code>./book/SUMMARY.md</code>. Follow the style there, which
+follows strict formatting. There are two kinds of additions:</p>
+<ul>
+<li>New single section
+<ul>
+<li>Tab to the appropriate depth</li>
+<li>Add a <code>[Section name](section_name.md)</code></li>
+</ul>
+</li>
+<li>New nested section
+<ul>
+<li>Tab to the appropriate depth</li>
+<li>Add a <code>[Section name](section_name/README.md)</code>
+<ul>
+<li>Add <code>[Subsection one](section_name/subsection_one.md)</code></li>
+<li>Add <code>[Subsection two](section_name/subsection_two.md)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Don't ceate these pages, the <code>./book/SUMMARY.md</code> file is parsed and any missing
+pages are generated when <code>mdbook serve</code> is run. Content can then be added to the
+generated pages.</p>
+<p>Then run serve:</p>
+<pre><code class="language-sh">mdbook serve --open
+</code></pre>
+<h2 id="test"><a class="header" href="#test">Test</a></h2>
+<p>To test the code within the book run:</p>
+<pre><code class="language-sh">mdbook test
+</code></pre>
+<h2 id="links"><a class="header" href="#links">Links</a></h2>
+<p>To keep the book easy to manage, avoid:</p>
+<ul>
+<li>External links likely to change</li>
+<li>Internal links to other pages or sections</li>
+</ul>
+<p>Relative links to locations outside the <code>./book</code> directory are not possible.</p>
+<h2 id="diagrams"><a class="header" href="#diagrams">Diagrams</a></h2>
+<p>Diagrams can be added using mermaid annotations on a normal code block:</p>
+<pre><code class="language-sh">    ```mermaid
+    graph TD;
+        A--&gt;B;
+        A--&gt;C;
+        B--&gt;D;
+        C--&gt;D;
+    ```
+</code></pre>
+<p>The above be converted to the following during book-building:</p>
+<pre class="mermaid">graph TD;
+    A--&gt;B;
+    A--&gt;C;
+    B--&gt;D;
+    C--&gt;D;
+</pre>
+<h3 id="installation-2"><a class="header" href="#installation-2">Installation</a></h3>
+<p>Installation is required to enable diagram generation</p>
+<pre><code class="language-sh">cd book
+cargo install mdbook-mermaid
+mdbook-mermaid install
+</code></pre>
+<h2 id="crate-documentation-location"><a class="header" href="#crate-documentation-location">Crate documentation location</a></h2>
+<p>Workspace crates are published to crates.io and include the <code>README.md</code> in the root of the crate.
+This is valuable to have when using the crates outside of the context of Trin
+E.g., <code>ethportal-api</code>.</p>
+<p>Any documentation of workspace crates in the book should therefore be limited to explaining
+how the crate interacts with the other workspaces in the context of Trin. Rather than moving
+the workspace <code>README.md</code>'s to the book.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="mermaid.min.js"></script>
+        <script src="mermaid-init.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
