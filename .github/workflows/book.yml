@@ -2,16 +2,8 @@ name: book
 on:
   push:
     branches: [master]
-    paths:
-      - 'book/**'
-      - 'book.toml'
-      - '.github/workflows/book.yml'
   pull_request:
     branches: [master]
-    paths:
-      - 'book/**'
-      - 'book.toml'
-      - '.github/workflows/book.yml'
 
 jobs:
   test:
@@ -37,6 +29,7 @@ jobs:
         run: mdbook test
   
   build:
+    if: 
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -58,28 +51,22 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
+          name: github-pages
           path: book
     
   deploy:
     needs: build
 
-    # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
+      pages: write
+      id-token: write
 
-    # Deploy to the github-pages environment
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
-    # Specify runner + deployment step
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v3
-        with:
-          path: book
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v1
